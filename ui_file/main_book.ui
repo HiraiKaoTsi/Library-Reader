@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QFrame" name="frame_book">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>200</y>
+      <width>451</width>
+      <height>219</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>451</width>
+      <height>219</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>451</width>
+      <height>219</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QFrame {
+	border: 1px solid #54026E;
+	border-radius: 4px;
+}
+QLabel {
+	border: 0px solid;
+	font-family: Rubick;
+}
+QToolTip {
+	font-family: Rubick;
+	font-size: 12pt;
+	color:white; 
+	padding:2px;
+	border-width:2px;
+	border-style:solid;
+	border-radius:20px;
+	background-color: rgb(30, 33, 61);
+	border: 1px solid white;
+	border-radius: 7px;
+	overflow:hidden;
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_3">
+     <item row="0" column="2" colspan="2">
+      <widget class="QLabel" name="label_name">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font-size: 9pt;</string>
+       </property>
+       <property name="text">
+        <string>Название Основатель Тёмного Пути</string>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QLabel" name="label_author">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font-size: 7pt;</string>
+       </property>
+       <property name="text">
+        <string>Автор: Efremov</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0" rowspan="7">
+      <widget class="QLabel" name="label_icon">
+       <property name="minimumSize">
+        <size>
+         <width>108</width>
+         <height>152</height>
+        </size>
+       </property>
+       <property name="sizeIncrement">
+        <size>
+         <width>108</width>
+         <height>152</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">image: url(D:/Program projects/Python projects/Library/Resources/all_book/Бензопила/img.PNG);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="2" colspan="2">
+      <widget class="QLabel" name="label_publisher">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font-size: 7pt;</string>
+       </property>
+       <property name="text">
+        <string>Издательство: ыфввы</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="2" colspan="2" alignment="Qt::AlignRight">
+      <widget class="QLabel" name="label_price">
+       <property name="styleSheet">
+        <string notr="true">font-size: 8pt;</string>
+       </property>
+       <property name="text">
+        <string>Цена 100 руб</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="2" colspan="2">
+      <widget class="QLabel" name="label_description">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font-size: 7pt;</string>
+       </property>
+       <property name="text">
+        <string>Случись что в мире совершенствующихся — все тут же бросаются наперебой обвинять Старейшину Илина. Казалось бы, столько людей замешаны в страшной трагедии клана Чан... а зачинщиком всё равно считают Вэй Усяня. Дело в том, что давным-давно он создал ужасающее оружие: ПечатьТьмы. И до сих пор желание обладать ею толкает многих на безумные поступки.
+
+Однако Вэй Усянь не отчаивается. Он обязательно отыщет истину даже в таком запутанном деле! Только сперва ещё разок проверит на прочность правила клана Лань, ведь не каждый день удаётся уговорить праведного Ханьгуан-цзюня пригубить вина.
+
+Тем временем призрачная рука приводит героев в гиблые края, где они встречают толпы мертвецов и... очень знакомых юных заклинателей. Интересно, кто ещё скрывается в густом тумане зловещего города И?</string>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::AutoText</enum>
+       </property>
+       <property name="scaledContents">
+        <bool>false</bool>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+       <property name="margin">
+        <number>0</number>
+       </property>
+       <property name="indent">
+        <number>-1</number>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="2" alignment="Qt::AlignRight">
+      <widget class="QPushButton" name="pushButton_bookmark">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>35</width>
+         <height>35</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>45</width>
+         <height>45</height>
+        </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Добавить книгу в закладки&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: rgb(27, 169, 212);
+	border: none;
+	border-radius: 7px;
+}
+QPushButton:hover {
+	background-color: rgb(31, 235, 249);
+}
+QPushButton:pressed {
+	background-color: rgb(20, 131, 161);
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+         <normaloff>:/newPrefix/icon2/bookmark.png</normaloff>:/newPrefix/icon2/bookmark.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>30</width>
+         <height>30</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="3">
+      <widget class="QPushButton" name="pushButton_more_details">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>35</width>
+         <height>35</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>45</width>
+         <height>45</height>
+        </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Подробная информация о книге&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+	background-color: rgb(234, 219, 44);
+	border: none;
+	border-radius: 8px;
+	font-family: Rubick;
+	font-size: 7pt;
+	color: rgb(0, 0, 0);
+}
+QPushButton:hover {
+	background-color: rgb(255, 238, 48);
+}
+QPushButton:pressed {
+	background-color: rgb(211, 197, 39);
+}</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+         <normaloff>:/newPrefix/icon2/more.png</normaloff>:/newPrefix/icon2/more.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>30</width>
+         <height>30</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../../Изображения/QtResources/white_icon.qrc"/>
+ </resources>
+ <connections/>
+</ui>

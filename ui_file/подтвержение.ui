@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>381</width>
+    <height>241</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Подтверждение</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+    <normaloff>:/newPrefix/icon2/help.png</normaloff>:/newPrefix/icon2/help.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+	background-color: qlineargradient(spread:pad, x1:0.264, y1:0, x2:0.294, y2:1, stop:0 rgba(30, 33, 61, 255), stop:0.497512 rgba(20, 23, 96, 255), stop:1 rgba(30, 33, 61, 255));
+	color: white;
+	font-family: Rubick;
+	font-size: 12pt;
+	font-weight: 600;
+	border: 2px solid rgb(221, 153, 255);
+
+	border-radius: 3px;
+}
+
+QFrame{
+	border: 0px;
+	background-color: rgba(0,0,0,0);
+}
+
+QLineEdit{
+	background-color: rgba(0,0,0,0);
+}
+
+QToolTip {
+	font-family: Rubick;
+	font-size: 12pt;
+	color:white; padding:2px;
+	border-width:2px;
+	border-style:solid;
+	border-radius:20px;
+	background-color: rgb(30, 33, 61);
+	border: 1px solid white;
+	border-radius: 7px;
+	overflow:hidden;
+}
+
+QLineEdit {
+	background-color: rgb(255, 255, 255);
+	border: 1px solid #54026E;
+	border-radius: 4px;
+	color: rgb(30, 33, 61);
+}
+
+QPushButton {
+	background-color: transparent;
+	border: none;
+	border-radius: 7px;
+}
+
+QPushButton:hover {
+	background-color: rgb(66, 60, 99);
+}
+
+QPushButton:pressed {
+	background-color: rgb(28, 28, 28);
+}
+
+QScrollBar:horizontal {
+    border: 2px solid rrgb(26, 22, 42);
+    background: rgb(66, 60, 99);
+    height: 15px;
+    margin: 0px 20px 0 20px;
+}
+
+QScrollBar::handle:horizontal {
+	background-color: rgb(26, 22, 42);
+    min-width: 22px;
+}
+
+QScrollBar::add-line:horizontal {
+	image: url(:/white_icon/icon2/right_arrow (2).png);
+    border: 2px solid rgb(66, 60, 99);
+    background: rgb(26, 22, 42);
+    width: 20px;
+    subcontrol-position: right;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:horizontal {
+    border: 2px solid rgb(66, 60, 99);
+    background: rgb(26, 22, 42);
+    width: 20px;
+    subcontrol-position: left;
+    subcontrol-origin: margin;
+	image: url(:/white_icon/icon2/left_arrow.png)
+}
+
+QScrollBar:vertical {
+    border: 2px solid rrgb(26, 22, 42);
+    background: rgb(66, 60, 99);
+    width: 15px;
+	width: 18px;
+    margin: 20px 0 20px 0;
+}
+
+QScrollBar::handle:vertical {
+	background-color: rgb(26, 22, 42);;
+    min-width: 22px;
+}
+
+QScrollBar::add-line:vertical {
+	image: url(:/white_icon/icon2/right_arrow (2).png);
+    border: 2px solid rgb(66, 60, 99);
+    background: rgb(26, 22, 42);
+    height: 20px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+	image: url(:/white_icon/icon2/bot_arrow.png);
+}
+
+QScrollBar::sub-line:vertical {
+    border: 2px solid rgb(66, 60, 99);
+    background: rgb(26, 22, 42);
+    height: 20px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+	image: url(:/white_icon/icon2/up_arrow.png);
+}
+
+QScrollBar::handle:hover {
+	background: rgb(66, 60, 99);
+}
+
+QScrollBar::handle:pressed {
+	background-color: rgb(28, 28, 28);
+}
+
+QScrollBar::add-page, QScrollBar::sub-page {
+	background: rgb(138, 130, 179)
+}
+
+
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item alignment="Qt::AlignTop">
+    <widget class="QFrame" name="frame_status">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>50</height>
+      </size>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item alignment="Qt::AlignLeft|Qt::AlignVCenter">
+       <widget class="QLabel" name="label_icnon_status">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>40</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">image: url(:/newPrefix/icon2/help.png);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item alignment="Qt::AlignLeft|Qt::AlignVCenter">
+       <widget class="QLabel" name="label_name_status">
+        <property name="text">
+         <string>Подтверждение</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item alignment="Qt::AlignRight|Qt::AlignVCenter">
+       <widget class="QPushButton" name="pushButton_close_status">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>40</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Закрыть&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+          <normaloff>:/newPrefix/icon2/close.png</normaloff>:/newPrefix/icon2/close.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>50</width>
+          <height>50</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QFrame" name="frame_main">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0" colspan="2">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1" alignment="Qt::AlignRight|Qt::AlignBottom">
+       <widget class="QFrame" name="frame">
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QPushButton" name="pushButton_ok">
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Ok</string>
+           </property>
+          </widget>
+         </item>
+         <item alignment="Qt::AlignBottom">
+          <widget class="QPushButton" name="pushButton_close">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Закрыть</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="../../Изображения/QtResources/white_icon.qrc"/>
+ </resources>
+ <connections/>
+</ui>

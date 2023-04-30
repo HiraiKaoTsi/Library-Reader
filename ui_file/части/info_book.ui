@@ -1,0 +1,731 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>955</width>
+    <height>639</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+	background-color: qlineargradient(spread:pad, x1:0.264, y1:0, x2:0.294, y2:1, stop:0 rgba(30, 33, 61, 255), stop:0.497512 rgba(20, 23, 96, 255), stop:1 rgba(30, 33, 61, 255));
+	color: white;
+	font-family: Rubick;
+	font-size: 12pt;
+	font-weight: 600;
+	border: none;
+}
+
+QFrame{
+	background-color: rgba(0,0,0,0);
+}
+
+QLineEdit{
+	background-color: rgba(0,0,0,0);
+}
+
+QToolTip {
+	font-family: Rubick;
+	font-size: 12pt;
+	color:white; padding:2px;
+	border-width:2px;
+	border-style:solid;
+	border-radius:20px;
+	background-color: rgb(30, 33, 61);
+	border: 1px solid white;
+	border-radius: 7px;
+	overflow:hidden;
+}
+
+QLineEdit {
+	background-color: rgb(255, 255, 255);
+	border: 1px solid #54026E;
+	border-radius: 4px;
+	color: rgb(30, 33, 61);
+}
+
+QPushButton {
+	background-color: transparent;
+	border: none;
+	border-radius: 7px;
+}
+
+QPushButton:hover {
+	background-color: rgb(66, 60, 99);
+}
+
+QPushButton:pressed {
+	background-color: rgb(28, 28, 28);
+}
+
+QScrollBar:horizontal {
+    border: 2px solid rrgb(26, 22, 42);
+    background: rgb(66, 60, 99);
+    height: 15px;
+    margin: 0px 20px 0 20px;
+}
+
+QScrollBar::handle:horizontal {
+	background-color: rgb(26, 22, 42);
+    min-width: 22px;
+}
+
+QScrollBar::add-line:horizontal {
+	image: url(:/white_icon/icon2/right_arrow (2).png);
+    border: 2px solid rgb(66, 60, 99);
+    background: rgb(26, 22, 42);
+    width: 20px;
+    subcontrol-position: right;
+    subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:horizontal {
+    border: 2px solid rgb(66, 60, 99);
+    background: rgb(26, 22, 42);
+    width: 20px;
+    subcontrol-position: left;
+    subcontrol-origin: margin;
+	image: url(:/white_icon/icon2/left_arrow.png)
+}
+
+QScrollBar:vertical {
+    border: 2px solid rrgb(26, 22, 42);
+    background: rgb(66, 60, 99);
+    width: 15px;
+	width: 18px;
+    margin: 20px 0 20px 0;
+}
+
+QScrollBar::handle:vertical {
+	background-color: rgb(26, 22, 42);;
+    min-width: 22px;
+}
+
+QScrollBar::add-line:vertical {
+	image: url(:/white_icon/icon2/right_arrow (2).png);
+    border: 2px solid rgb(66, 60, 99);
+    background: rgb(26, 22, 42);
+    height: 20px;
+    subcontrol-position: bottom;
+    subcontrol-origin: margin;
+	image: url(:/white_icon/icon2/bot_arrow.png);
+}
+
+QScrollBar::sub-line:vertical {
+    border: 2px solid rgb(66, 60, 99);
+    background: rgb(26, 22, 42);
+    height: 20px;
+    subcontrol-position: top;
+    subcontrol-origin: margin;
+	image: url(:/white_icon/icon2/up_arrow.png);
+}
+
+QScrollBar::handle:hover {
+	background: rgb(66, 60, 99);
+}
+
+QScrollBar::handle:pressed {
+	background-color: rgb(28, 28, 28);
+}
+
+QScrollBar::add-page, QScrollBar::sub-page {
+	background: rgb(138, 130, 179)
+}
+
+
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QFrame" name="frame_info_book">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="1" column="0">
+        <widget class="QLabel" name="img_ib">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">image: url(D:/Program projects/Python projects/Library/Resources/all_book/Начало поседнего конца/img.jpg);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QScrollArea" name="scrollArea_ib">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(0,0,0,0);</string>
+         </property>
+         <property name="widgetResizable">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="scrollAreaWidget_ib">
+          <property name="geometry">
+           <rect>
+            <x>-3</x>
+            <y>0</y>
+            <width>461</width>
+            <height>534</height>
+           </rect>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_2">
+           <item row="2" column="0">
+            <spacer name="verticalSpacer_ib">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>34</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="1" column="0" colspan="2">
+            <widget class="QFrame" name="frame_allinfo_ib">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_3">
+              <item row="10" column="0">
+               <widget class="QLabel" name="label10_ib">
+                <property name="text">
+                 <string>Возрастные ограничения</string>
+                </property>
+               </widget>
+              </item>
+              <item row="11" column="2">
+               <widget class="QLabel" name="quantities_ib">
+                <property name="text">
+                 <string>TextLabel</string>
+                </property>
+               </widget>
+              </item>
+              <item row="9" column="0">
+               <widget class="QLabel" name="label9_ib">
+                <property name="text">
+                 <string>Вес, г</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QLabel" name="label1_ib">
+                <property name="text">
+                 <string>Издательство</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="2">
+               <widget class="QLabel" name="series_ib">
+                <property name="text">
+                 <string>TextLabel</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="label4_ib">
+                <property name="text">
+                 <string>ISBN</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label2_ib">
+                <property name="text">
+                 <string>Серия</string>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="2">
+               <widget class="QLabel" name="cove_type_ib">
+                <property name="text">
+                 <string>TextLabel</string>
+                </property>
+               </widget>
+              </item>
+              <item row="9" column="2">
+               <widget class="QLabel" name="weight_g_ib">
+                <property name="text">
+                 <string>TextLabel</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="2">
+               <widget class="QLabel" name="interpreter_ib">
+                <property name="text">
+                 <string>TextLabel</string>
+                </property>
+               </widget>
+              </item>
+              <item row="11" column="0">
+               <widget class="QLabel" name="label11_ib">
+                <property name="text">
+                 <string>Количество</string>
+                </property>
+               </widget>
+              </item>
+              <item row="10" column="2">
+               <widget class="QLabel" name="age_restrictions_ib">
+                <property name="text">
+                 <string>TextLabel</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="2">
+               <widget class="QLabel" name="ISBN_ib">
+                <property name="text">
+                 <string>TextLabel</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="2">
+               <widget class="QLabel" name="number_pages_ib">
+                <property name="text">
+                 <string>TextLabel</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="2">
+               <widget class="QLabel" name="format_ib">
+                <property name="text">
+                 <string>TextLabel</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="0">
+               <widget class="QLabel" name="label5_ib">
+                <property name="text">
+                 <string>Переводчик</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="QLabel" name="publisher_ib">
+                <property name="text">
+                 <string>TextLabel</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <spacer name="horizontalSpacer_ib">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Fixed</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label3_ib">
+                <property name="text">
+                 <string>Год издания</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="2">
+               <widget class="QLabel" name="year_publication_ib">
+                <property name="text">
+                 <string>TextLabel</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="0">
+               <widget class="QLabel" name="label6_ib">
+                <property name="text">
+                 <string>Количество страниц</string>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="0">
+               <widget class="QLabel" name="label8_ib">
+                <property name="text">
+                 <string>Тип обложки</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="0">
+               <widget class="QLabel" name="label7_ib">
+                <property name="text">
+                 <string>Размер</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QFrame" name="frame_hat_ib">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_3">
+              <item>
+               <widget class="QLabel" name="author_ib">
+                <property name="text">
+                 <string>Автор</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="name_book_ib">
+                <property name="text">
+                 <string>Name</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QFrame" name="frame_eval_ib">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_3">
+              <item>
+               <widget class="QLabel" name="label_ib">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>Оценка</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="evaluation_ib">
+                <property name="text">
+                 <string>TextLabel</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="description_ib">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>Описание</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+       <item row="1" column="2" alignment="Qt::AlignRight|Qt::AlignBottom">
+        <widget class="QFrame" name="frame_buy_ib">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Maximum" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>290</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_4">
+          <item row="2" column="0" alignment="Qt::AlignHCenter|Qt::AlignTop">
+           <widget class="QLabel" name="condition_ib">
+            <property name="text">
+             <string>Состояние</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QFrame" name="frame_button_ib">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>100</height>
+             </size>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <layout class="QHBoxLayout" name="horizontalLayout_4">
+             <item alignment="Qt::AlignRight">
+              <widget class="QPushButton" name="pushButton_arrange_ib">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+	background-color: rgb(119, 221, 119);
+	border: none;
+	border-radius: 7px;
+}
+QPushButton:hover {
+	background-color: rgb(152, 255, 152);
+}
+QPushButton:pressed {
+	background-color: rgb(19, 136, 8);
+}</string>
+               </property>
+               <property name="text">
+                <string>Оформить
+   заказ!</string>
+               </property>
+               <property name="icon">
+                <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+                 <normaloff>:/white_icon/icon2/buy.png</normaloff>:/white_icon/icon2/buy.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>40</width>
+                 <height>29</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_2_ib">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>15</width>
+                 <height>10</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item alignment="Qt::AlignLeft">
+              <widget class="QPushButton" name="pushButton_bookmark_ib">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QPushButton {
+	background-color: rgb(27, 169, 212);
+	border: none;
+	border-radius: 7px;
+}
+QPushButton:hover {
+	
+	background-color: rgb(31, 235, 249);
+}
+QPushButton:pressed {
+	background-color: rgb(20, 131, 161);
+}</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+                 <normaloff>:/white_icon/icon2/bookmark.png</normaloff>:/white_icon/icon2/bookmark.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>50</width>
+                 <height>50</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item row="0" column="0" alignment="Qt::AlignHCenter|Qt::AlignBottom">
+           <widget class="QLabel" name="price_ib">
+            <property name="text">
+             <string>Цена</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="0" column="0" colspan="3">
+        <widget class="QFrame" name="frame_header_ib">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item alignment="Qt::AlignLeft|Qt::AlignTop">
+           <widget class="QPushButton" name="pushButton_back_ib">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+              <normaloff>:/white_icon/icon2/left_arrow.png</normaloff>:/white_icon/icon2/left_arrow.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>50</width>
+              <height>60</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item alignment="Qt::AlignRight|Qt::AlignTop">
+           <widget class="QPushButton" name="pushButton_menu_ib">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Скрыть/раскрыть меню пользователя&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+              <normaloff>:/white_icon/icon2/menu.png</normaloff>:/white_icon/icon2/menu.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>50</width>
+              <height>50</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../../Изображения/QtResources/white_icon.qrc"/>
+ </resources>
+ <connections/>
+</ui>
