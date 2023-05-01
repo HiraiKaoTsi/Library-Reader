@@ -71,7 +71,6 @@ class FunctionsWorkSQLiteUsers(QtCore.QThread):
             cur.close()
             con.close()
 
-
     def CheckInfoBookmark(self, email: str) -> tuple:
         info_bookmark = ()
         try:
@@ -81,14 +80,18 @@ class FunctionsWorkSQLiteUsers(QtCore.QThread):
                 received_info = cur.fetchone()
             if received_info[0] is not None:
                 received_info = ''.join(received_info).split("|")
-                info_bookmark = map(int, received_info)
+                if received_info[0] == "":
+                    pass
+                elif len(received_info) == 1:
+                    info_bookmark = (int(''.join(received_info)),)
+                elif len(received_info) > 1:
+                    info_bookmark = tuple(map(int, received_info))
         except sqlite3.Error as error:
             OpenNotificationDialog(f"Проблема связанная с базой данных\n{error}")
         finally:
             cur.close()
             con.close()
-
-        return tuple(info_bookmark)
+        return info_bookmark
 
     def DeleteBookmarkUsers(self, email: str, bookmark: str):
         try:
@@ -96,8 +99,13 @@ class FunctionsWorkSQLiteUsers(QtCore.QThread):
                 cur = con.cursor()
                 cur.execute(f"SELECT bookmark FROM {self.Table} WHERE email='{email}'")
                 info_bookmark = cur.fetchone()[0]
-                edit_bookmark = info_bookmark.split('|').remove(bookmark)
-                con.execute(f"UPDATE {self.Table} SET bookmark='{edit_bookmark}' WHERE email='{email}';")
+                if len(info_bookmark) == 1:
+                    con.execute(f"UPDATE {self.Table} SET bookmark='' WHERE email='{email}';")
+                else:
+                    new_bookmark = info_bookmark.split('|')
+                    new_bookmark.remove(bookmark)
+                    new_bookmark = '|'.join(new_bookmark)
+                    con.execute(f"UPDATE {self.Table} SET bookmark='{new_bookmark}' WHERE email='{email}';")
         except sqlite3.Error as error:
             return f"Проблема связанная с базой данных\n{error}"
         finally:

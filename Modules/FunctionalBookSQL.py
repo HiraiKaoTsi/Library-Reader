@@ -6,23 +6,27 @@ from Modules.DisplayingMessageBox import OpenNotificationDialog
 
 
 class GettingInformationSQLBooks:
-    def __init__(self, method_more_details, method_bookmark):
+    def __init__(self, method_more_details, method_bookmark_add, method_bookmark_delete):
         self.Base = "Resources\\BaseDataLibrary.db"
         self.Table = "books"
         self.signal_more_details = method_more_details
-        self.signal_bookmark = method_bookmark
+        self.signal_bookmark_add = method_bookmark_add
+        self.signal_bookmark_delete = method_bookmark_delete
 
-    def OpeningTableAllBooks(self) -> tuple:
+
+    def OpeningTableAllBooks(self, bookmark: tuple) -> tuple:
         all_frame = []
+
         try:
             with sqlite3.connect(self.Base) as con:
                 cur = con.cursor()
                 request_information = cur.execute(f"SELECT * FROM {self.Table};")
             for row in request_information:
-                books = CreateBook(row[0], row[1], row[2], row[3], row[17], row[15], row[14], row[13])
+                books = CreateBook(row[0], row[1], row[2], row[3], row[17], row[15], row[14], row[13], bookmark,
+                                   self.signal_more_details, self.signal_bookmark_add, self.signal_bookmark_delete)
 
-                books.signal_more_details.connect(self.signal_more_details)
-                books.signal_bookmark.connect(self.signal_bookmark)
+                # books.signal_more_details.connect(self.signal_more_details)
+                # books.signal_bookmark.connect(self.signal_bookmark)
 
                 all_frame.append(books.frame_book)
         except sqlite3.Error as error:
@@ -32,7 +36,6 @@ class GettingInformationSQLBooks:
             con.close()
 
         return tuple(all_frame)
-
 
     def SearchByAllCategoriesBooks(self, name_book: str, author: str, price_from: int,
                                    price_to: int, publisher: str, from_data: int, to_data: int) -> tuple:
@@ -58,7 +61,6 @@ class GettingInformationSQLBooks:
 
         return tuple(all_frame)
 
-
     def SearchByNameBook(self, name_book):
         all_frame = []
         try:
@@ -78,7 +80,6 @@ class GettingInformationSQLBooks:
             con.close()
 
         return tuple(all_frame)
-
 
     def SearchInfoById(self, Id: int):
         request_information = ()
