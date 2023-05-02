@@ -52,4 +52,3 @@ class FunctionalRegedit(QtCore.QThread):
     def CloseFolder(object_to_close):
         if object_to_close:
             wrg.CloseKey(object_to_close)
-
