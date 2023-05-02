@@ -20,7 +20,7 @@
    <string>Библиотека Читайка</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+   <iconset resource="QtResources/white_icon.qrc">
     <normaloff>:/newPrefix/icon2/book_shop.png</normaloff>:/newPrefix/icon2/book_shop.png</iconset>
   </property>
   <property name="styleSheet">
@@ -241,7 +241,7 @@ QPushButton:disabled {
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+          <iconset resource="QtResources/white_icon.qrc">
            <normaloff>:/newPrefix/icon2/bot_arrow.png</normaloff>:/newPrefix/icon2/bot_arrow.png</iconset>
          </property>
          <property name="iconSize">
@@ -273,7 +273,7 @@ QPushButton:disabled {
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+          <iconset resource="QtResources/white_icon.qrc">
            <normaloff>:/newPrefix/icon2/expand.png</normaloff>:/newPrefix/icon2/expand.png</iconset>
          </property>
          <property name="iconSize">
@@ -302,7 +302,7 @@ QPushButton:disabled {
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+          <iconset resource="QtResources/white_icon.qrc">
            <normaloff>:/newPrefix/icon2/close.png</normaloff>:/newPrefix/icon2/close.png</iconset>
          </property>
          <property name="iconSize">
@@ -358,7 +358,7 @@ QPushButton:disabled {
           <string> Пользователь  </string>
          </property>
          <property name="icon">
-          <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+          <iconset resource="QtResources/white_icon.qrc">
            <normaloff>:/newPrefix/icon2/user.png</normaloff>:/newPrefix/icon2/user.png</iconset>
          </property>
          <property name="iconSize">
@@ -381,7 +381,7 @@ QPushButton:disabled {
           <string> Главное меню </string>
          </property>
          <property name="icon">
-          <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+          <iconset resource="QtResources/white_icon.qrc">
            <normaloff>:/newPrefix/icon2/menu_cube.png</normaloff>:/newPrefix/icon2/menu_cube.png</iconset>
          </property>
          <property name="iconSize">
@@ -413,7 +413,7 @@ QPushButton:disabled {
           <string> Настройки </string>
          </property>
          <property name="icon">
-          <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+          <iconset resource="QtResources/white_icon.qrc">
            <normaloff>:/newPrefix/icon2/settings.png</normaloff>:/newPrefix/icon2/settings.png</iconset>
          </property>
          <property name="iconSize">
@@ -436,7 +436,7 @@ QPushButton:disabled {
           <string> Справка </string>
          </property>
          <property name="icon">
-          <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+          <iconset resource="QtResources/white_icon.qrc">
            <normaloff>:/newPrefix/icon2/info.png</normaloff>:/newPrefix/icon2/info.png</iconset>
          </property>
          <property name="iconSize">
@@ -465,7 +465,7 @@ QPushButton:disabled {
           <string> Помощь </string>
          </property>
          <property name="icon">
-          <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+          <iconset resource="QtResources/white_icon.qrc">
            <normaloff>:/newPrefix/icon2/help.png</normaloff>:/newPrefix/icon2/help.png</iconset>
          </property>
          <property name="iconSize">
@@ -491,7 +491,7 @@ QPushButton:disabled {
           <string> Заклаки </string>
          </property>
          <property name="icon">
-          <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+          <iconset resource="QtResources/white_icon.qrc">
            <normaloff>:/newPrefix/icon2/mark.png</normaloff>:/newPrefix/icon2/mark.png</iconset>
          </property>
          <property name="iconSize">
@@ -530,7 +530,7 @@ QPushButton:disabled {
           <string> Скрыть </string>
          </property>
          <property name="icon">
-          <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+          <iconset resource="QtResources/white_icon.qrc">
            <normaloff>:/newPrefix/icon2/right_arrow.png</normaloff>:/newPrefix/icon2/right_arrow.png</iconset>
          </property>
          <property name="iconSize">
@@ -553,7 +553,7 @@ QPushButton:disabled {
           <string> Выход </string>
          </property>
          <property name="icon">
-          <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+          <iconset resource="QtResources/white_icon.qrc">
            <normaloff>:/newPrefix/icon2/exit.png</normaloff>:/newPrefix/icon2/exit.png</iconset>
          </property>
          <property name="iconSize">
@@ -726,7 +726,7 @@ QPushButton:disabled {
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+             <iconset resource="QtResources/white_icon.qrc">
               <normaloff>:/newPrefix/icon2/menu.png</normaloff>:/newPrefix/icon2/menu.png</iconset>
             </property>
             <property name="iconSize">
@@ -774,8 +774,8 @@ background-color: rgba(0,0,0,0);</string>
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>807</width>
-            <height>549</height>
+            <width>759</width>
+            <height>568</height>
            </rect>
           </property>
           <property name="minimumSize">
@@ -837,7 +837,7 @@ QLabel {
                  <string/>
                 </property>
                 <property name="icon">
-                 <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+                 <iconset resource="QtResources/white_icon.qrc">
                   <normaloff>:/newPrefix/icon2/close.png</normaloff>:/newPrefix/icon2/close.png</iconset>
                 </property>
                 <property name="iconSize">
@@ -1370,7 +1370,7 @@ QPushButton:pressed {
                 <string>К оформлению</string>
                </property>
                <property name="icon">
-                <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+                <iconset resource="QtResources/white_icon.qrc">
                  <normaloff>:/newPrefix/icon2/buy.png</normaloff>:/newPrefix/icon2/buy.png</iconset>
                </property>
                <property name="iconSize">
@@ -1408,7 +1408,7 @@ QPushButton:pressed {
              <string/>
             </property>
             <property name="pixmap">
-             <pixmap resource="../../Изображения/QtResources/white_icon.qrc">:/newPrefix/icon2/user.png</pixmap>
+             <pixmap resource="QtResources/white_icon.qrc">:/newPrefix/icon2/user.png</pixmap>
             </property>
            </widget>
           </item>
@@ -1453,7 +1453,7 @@ QPushButton:pressed {
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+             <iconset resource="QtResources/white_icon.qrc">
               <normaloff>:/newPrefix/icon2/menu.png</normaloff>:/newPrefix/icon2/menu.png</iconset>
             </property>
             <property name="iconSize">
@@ -1480,8 +1480,8 @@ QPushButton:pressed {
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>194</width>
-            <height>565</height>
+            <width>294</width>
+            <height>589</height>
            </rect>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_5"/>
@@ -1503,7 +1503,7 @@ QPushButton:pressed {
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+          <iconset resource="QtResources/white_icon.qrc">
            <normaloff>:/newPrefix/icon2/left_arrow.png</normaloff>:/newPrefix/icon2/left_arrow.png</iconset>
          </property>
          <property name="iconSize">
@@ -1579,7 +1579,7 @@ QPushButton:pressed {
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+             <iconset resource="QtResources/white_icon.qrc">
               <normaloff>:/newPrefix/icon2/left_arrow.png</normaloff>:/newPrefix/icon2/left_arrow.png</iconset>
             </property>
             <property name="iconSize">
@@ -1608,7 +1608,7 @@ QPushButton:pressed {
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+             <iconset resource="QtResources/white_icon.qrc">
               <normaloff>:/newPrefix/icon2/menu.png</normaloff>:/newPrefix/icon2/menu.png</iconset>
             </property>
             <property name="iconSize">
@@ -1641,8 +1641,8 @@ QPushButton:pressed {
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>668</width>
-            <height>711</height>
+            <width>622</width>
+            <height>604</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="gridLayout_4">
@@ -1727,7 +1727,7 @@ QPushButton:disabled {
    заказ!</string>
                    </property>
                    <property name="icon">
-                    <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+                    <iconset resource="QtResources/white_icon.qrc">
                      <normaloff>:/newPrefix/icon2/buy.png</normaloff>:/newPrefix/icon2/buy.png</iconset>
                    </property>
                    <property name="iconSize">
@@ -1773,7 +1773,7 @@ QPushButton:pressed {
                     <string/>
                    </property>
                    <property name="icon">
-                    <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+                    <iconset resource="QtResources/white_icon.qrc">
                      <normaloff>:/newPrefix/icon2/bookmark.png</normaloff>:/newPrefix/icon2/bookmark.png</iconset>
                    </property>
                    <property name="iconSize">
@@ -2142,7 +2142,7 @@ QPushButton:pressed {
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="../../Изображения/QtResources/white_icon.qrc">:/newPrefix/icon2/book_shop.png</pixmap>
+              <pixmap resource="QtResources/white_icon.qrc">:/newPrefix/icon2/book_shop.png</pixmap>
              </property>
             </widget>
            </item>
@@ -2237,7 +2237,7 @@ QPushButton:pressed {
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+             <iconset resource="QtResources/white_icon.qrc">
               <normaloff>:/newPrefix/icon2/left_arrow.png</normaloff>:/newPrefix/icon2/left_arrow.png</iconset>
             </property>
             <property name="iconSize">
@@ -2285,7 +2285,7 @@ QPushButton:pressed {
              <string/>
             </property>
             <property name="pixmap">
-             <pixmap resource="../../Изображения/QtResources/white_icon.qrc">:/newPrefix/icon2/user.png</pixmap>
+             <pixmap resource="QtResources/white_icon.qrc">:/newPrefix/icon2/user.png</pixmap>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -2310,7 +2310,7 @@ QPushButton:pressed {
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+             <iconset resource="QtResources/white_icon.qrc">
               <normaloff>:/newPrefix/icon2/menu.png</normaloff>:/newPrefix/icon2/menu.png</iconset>
             </property>
             <property name="iconSize">
@@ -2489,6 +2489,7 @@ QPushButton:pressed {
   </widget>
  </widget>
  <resources>
+  <include location="QtResources/white_icon.qrc"/>
   <include location="../../Изображения/QtResources/white_icon.qrc"/>
  </resources>
  <connections/>
