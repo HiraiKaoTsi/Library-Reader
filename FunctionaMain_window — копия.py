@@ -138,18 +138,42 @@ class FunctionalMainWindow(QtWidgets.QMainWindow):
         else:
             self.CreateBooks_3col(self.BooksSQL.OpeningTableAllBooks())
 
-    def ChoiceCreateBookLoginReg(self, frame_books: tuple):
-        if self.isMaximized() is False:
-            self.CreateBooks_2col(self.BooksSQL.OpeningTableAllBooks())
-        else:
-            self.CreateBooks_3col(self.BooksSQL.OpeningTableAllBooks())
-
-    def ChoiceCreateBook(self, frame_books: tuple):
+    def SearchCreateBook(self, frame_book: tuple):
+        print(1)
+        print(self)
+        print(self.isMaximized())
         if self.isMaximized():
-            self.CreateBooks_2col(frame_books)
+            self.CreateBooks_2col(frame_book)
         else:
-            self.CreateBooks_3col(frame_books)
+            self.CreateBooks_3col(frame_book)
 
+    def ChoiceCreateBookWay2(self):
+        if self.info_log:
+            if self.isMaximized() is False:
+                self.CreateBooks_2col(self.BooksSQL.OpeningTableAllBooks(self.UsersSQL.CheckInfoBookmark(
+                    self.users_mail)))
+            else:
+                self.CreateBooks_3col(self.BooksSQL.OpeningTableAllBooks(self.UsersSQL.CheckInfoBookmark(
+                    self.users_mail)))
+        else:
+            if self.isMaximized() is False:
+                self.CreateBooks_2col(self.BooksSQL.OpeningTableAllBooks())
+            else:
+                self.CreateBooks_3col(self.BooksSQL.OpeningTableAllBooks())
+
+    def ChoiceCreateBook(self):
+        if self.info_log:
+            if self.isMaximized():
+                self.CreateBooks_2col(self.BooksSQL.OpeningTableAllBooks(self.UsersSQL.CheckInfoBookmark(
+                    self.users_mail)))
+            else:
+                self.CreateBooks_3col(self.BooksSQL.OpeningTableAllBooks(self.UsersSQL.CheckInfoBookmark(
+                    self.users_mail)))
+        else:
+            if self.isMaximized():
+                self.CreateBooks_2col(self.BooksSQL.OpeningTableAllBooks())
+            else:
+                self.CreateBooks_3col(self.BooksSQL.OpeningTableAllBooks())
 
     # Книги заполнение
     def CreateBooks_2col(self, all_books: tuple):
@@ -193,21 +217,16 @@ class FunctionalMainWindow(QtWidgets.QMainWindow):
             self.ui.pushButton_sort.setToolTip("Открыть сортировку")
             self.ui.frame_search.hide()
 
-    def AddBookmarkByUserSQL(self, info_click: tuple):
-
-
+    def AddBookmarkByUserSQL(self, info_click: list):
         if self.info_log:
             self.UsersSQL.InsertInfoBookmark(self.users_mail, info_click[0])
-            info_click[1].emit()
-
+            info_click[1].emit(True)
         else:
             self.OpenLoginReg()
 
-    def DeleteBookmarkByUserSQl(self, info_click: tuple):
-        print(2)
-        print(info_click)
-        print(type(info_click))
-        self.UsersSQL.DeleteBookmarkUsers(self.users_mail, str(info_click))
+    def DeleteBookmarkByUserSQl(self, info_click: list):
+        self.UsersSQL.DeleteBookmarkUsers(self.users_mail, str(info_click[0]))
+        info_click[1].emit(False)
 
     def ClearSearchAttributes(self):
         self.ui.lineEdit_search_ab.clear()
@@ -221,9 +240,14 @@ class FunctionalMainWindow(QtWidgets.QMainWindow):
     def ResetInfo(self):
         self.ClearBooks()
         self.ClearSearchAttributes()
-        self.CreateBooks(self.BooksSQL.OpeningTableAllBooks())
+        self.ChoiceCreateBookWay2()
 
     def OpenInfoBook(self, Id):
+
+        def ClickBookmark():
+            self.UsersSQL.DeleteBookmarkUsers(self.users_mail, str(Id))
+
+
         info = self.BooksSQL.SearchInfoById(Id)
 
         self.CheckOpenWindow()
@@ -272,13 +296,16 @@ class FunctionalMainWindow(QtWidgets.QMainWindow):
 
         if info[13] == 0:
             self.ui.condition_ib.setText("Нет в наличии!")
+            self.ui.pushButton_bookmark_ib.setEnabled(False)
             self.ui.pushButton_arrange_ib.setEnabled(False)
         else:
             self.ui.condition_ib.setText(f"В наличии-{info[13]} шт")
+            self.ui.pushButton_bookmark_ib.setEnabled(True)
             self.ui.pushButton_arrange_ib.setEnabled(True)
 
         if self.info_log:
             if Id in self.UsersSQL.CheckInfoBookmark(self.users_mail):
+                self.ui.pushButton_bookmark_ib.clicked.connect(ClickBookmark)
                 self.ui.pushButton_bookmark_ib.setStyleSheet("QPushButton {\n"
                                                              "    background-color: rgb(203, 25, 25);\n"
                                                              "    border: none;\n"
@@ -299,6 +326,8 @@ class FunctionalMainWindow(QtWidgets.QMainWindow):
                                                           "закладок</span></p></body></html>")
                 icon = QtGui.QIcon()
                 icon.addPixmap(QtGui.QPixmap(":/newPrefix/icon2/close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        else:
+            self.ui.pushButton_bookmark_ib.clicked.connect()
 
         self.ui.pushButton_bookmark_ib.setIcon(icon)
 
@@ -308,10 +337,11 @@ class FunctionalMainWindow(QtWidgets.QMainWindow):
             found_books = self.SearchBookName()
         else:
             found_books = self.SearchBookAllInfo()
+
         if found_books is not None:
             if len(found_books) != 0:
                 self.ClearBooks()
-                self.CreateBooks(found_books)
+                self.SearchCreateBook(found_books)
                 self.ui.pushButton_reset.show()
                 self.ui.label_you_mean.show()
             else:
@@ -339,17 +369,15 @@ class FunctionalMainWindow(QtWidgets.QMainWindow):
         return found_books
 
     def SearchBookName(self):
-        print(1)
+
         found_books = None
         name_book = self.ui.lineEdit_search_ab.text().strip().lower()
         if name_book != "":
-            print(2)
             if self.users_mail is not None:
                 found_books = self.BooksSQL.SearchByNameBook(name_book,
                                                              self.UsersSQL.CheckInfoBookmark(self.users_mail))
             else:
                 found_books = self.BooksSQL.SearchByNameBook(name_book)
-        print(3)
         print(found_books)
         return found_books
 
@@ -362,6 +390,9 @@ class FunctionalMainWindow(QtWidgets.QMainWindow):
         logg_reg.exec()
 
     def EditUserLogin(self, info):
+        print(1)
+        print(info)
+
         name = info[0]
         email = info[1]
         self.ui.pushButton_profile_user_mw.setText(name)
@@ -371,10 +402,8 @@ class FunctionalMainWindow(QtWidgets.QMainWindow):
         self.users_mail = email
 
         self.ClearBooks()
-        if self.isMaximized() is False:
-            self.CreateBooks_2col(self.BooksSQL.OpeningTableAllBooks(self.UsersSQL.CheckInfoBookmark(self.users_mail)))
-        else:
-            self.CreateBooks_3col(self.BooksSQL.OpeningTableAllBooks(self.UsersSQL.CheckInfoBookmark(self.users_mail)))
+        self.ChoiceCreateBookWay2()
+
 
     # Модули
     def CheckRememberUsers(self):
@@ -389,10 +418,7 @@ class FunctionalMainWindow(QtWidgets.QMainWindow):
     def ExpandWindow(self):
         self.ClearBooks()
 
-        if self.info_log:
-            self.ChoiceCreateBook(self.BooksSQL.OpeningTableAllBooks(self.UsersSQL.CheckInfoBookmark(self.users_mail)))
-        else:
-            self.ChoiceCreateBook(self.BooksSQL.OpeningTableAllBooks())
+        self.ChoiceCreateBook()
 
         if self.isMaximized():
             self.showNormal()
@@ -457,9 +483,8 @@ class FunctionalMainWindow(QtWidgets.QMainWindow):
 
     # функционал №№№
 
-    def Test(self, Id):
-        print(Id)
-        # self.UsersSQL.DeleteBookmarkUsers(self.users_mail, Id)
+    def Test(self, info):
+        print("yra")
 
 
 if __name__ == "__main__":

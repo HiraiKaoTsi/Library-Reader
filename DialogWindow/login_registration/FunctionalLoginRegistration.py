@@ -59,6 +59,7 @@ class FunctionalLoginRegistration(QtWidgets.QDialog):
     def Registration(self):
         check_info = self.CheckingFullInput(self.ui.lineEdit_name, self.ui.lineEdit_email_reg,
                                             self.ui.lineEdit_password1_reg, self.ui.lineEdit_password_reg)
+
         if check_info is True:
             if self.CheckingInputSymbols(self.ui.lineEdit_name, self.ui.lineEdit_email_reg,
                                          self.ui.lineEdit_password1_reg, self.ui.lineEdit_password_reg):
@@ -71,7 +72,6 @@ class FunctionalLoginRegistration(QtWidgets.QDialog):
                     OpenNotificationDialog(info)
                     if info == "Регистрация успешна!":
                         if self.ui.radioButton_save_reg.isChecked():
-                            print(1)
                             self.regedit.CreateInfoUsers(self.ui.lineEdit_email_reg.text(),
                                                          self.ui.lineEdit_password1_reg.text())
                         self.close()

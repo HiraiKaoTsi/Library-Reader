@@ -34,25 +34,29 @@ class FunctionsWorkSQLiteUsers(QtCore.QThread):
             con.close()
 
     def RegistrationUsers(self, name: str, email: str, password: str) -> str:
+        message = ""
+        check = False
         try:
             with sqlite3.connect(self.Base) as con:
                 cur = con.cursor()
                 cur.execute(f"SELECT * FROM {self.Table} WHERE email='{email}';")
                 request_information = cur.fetchone()
                 if request_information is not None:
-                    return "Такой email уже используется!"
+                    message = "Такой email уже используется!"
                 elif request_information is None:
                     con.execute(f"INSERT INTO users (username, email, password, date_registration) "
                                 f"VALUES ('{name}', '{email}', '{password}', '{date.today().strftime('%d.%m')}."
                                 f"{date.today().year}')")
-                    self.info_signal.emit((name, email))
-                    return "Регистрация успешна!"
+                    check = True
+                    message = "Регистрация успешна!"
         except sqlite3.Error as error:
-            return f"Проблема связанная с базой данных\n{error}"
+            message = f"Проблема связанная с базой данных\n{error}"
         finally:
             cur.close()
             con.close()
-
+        if check:
+            self.info_signal.emit((name, email))
+        return message
 
     def CheckInfoBookmark(self, email: str) -> tuple:
         info_bookmark = ()
@@ -76,7 +80,6 @@ class FunctionsWorkSQLiteUsers(QtCore.QThread):
             con.close()
         return info_bookmark
 
-
     def InsertInfoBookmark(self, email: str, bookmark_id: int):
         try:
             with sqlite3.connect(self.Base) as con:
@@ -94,7 +97,6 @@ class FunctionsWorkSQLiteUsers(QtCore.QThread):
         finally:
             cur.close()
             con.close()
-
 
     def DeleteBookmarkUsers(self, email: str, bookmark: str):
         try:

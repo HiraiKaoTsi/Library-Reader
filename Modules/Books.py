@@ -3,23 +3,27 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class CreateBook(QtCore.QThread):
     signal_more_details = QtCore.pyqtSignal(int)
-
     signal_bookmark_add = QtCore.pyqtSignal(list)
-    signal_bookmark_delete = QtCore.pyqtSignal(tuple)
-
-    test = QtCore.pyqtSignal(int)
+    signal_bookmark_delete = QtCore.pyqtSignal(list)
+    signal_bookmark_edit_color = QtCore.pyqtSignal(bool)
 
     def __init__(self, Id: int, NameBook: str, Author: str, Publisher: str, Description: str, img: str, Price: int,
                  quantities: int, users_bookmark: tuple,
                  method_more_details, method_bookmark_add, method_bookmark_delete):
         super().__init__()
 
-        # self.method_bookmark_delete = method_bookmark_delete
-        # self.method_bookmark_add = method_bookmark_add
+        # Переменные
+        self.info_function_bookmark = True
+
+        # Сигналы
+        self.signal_more_details.connect(method_more_details)
+        self.signal_bookmark_add.connect(method_bookmark_add)
+        self.signal_bookmark_delete.connect(method_bookmark_delete)
+        self.signal_bookmark_edit_color.connect(self.EditColorButtonBookmark)
 
         # Основной фрейм
         self.frame_book = QtWidgets.QFrame()
-        self.frame_book.setMinimumSize(QtCore.QSize(401, 219))
+        self.frame_book.setMinimumSize(QtCore.QSize(200, 219))
         self.frame_book.setMaximumSize(QtCore.QSize(401, 219))
         self.frame_book.setBaseSize(QtCore.QSize(401, 219))
         self.frame_book.setStyleSheet("QFrame {\n"
@@ -43,10 +47,7 @@ class CreateBook(QtCore.QThread):
                                       " 	border-radius: 7px;\n"
                                       " 	overflow:hidden;\n"
                                       "}")
-
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.frame_book.sizePolicy().hasHeightForWidth())
         self.frame_book.setSizePolicy(sizePolicy)
         self.frame_book.setObjectName(f"Frame-{Id}")
@@ -139,63 +140,15 @@ class CreateBook(QtCore.QThread):
         self.pushButton_bookmark.setMinimumSize(QtCore.QSize(35, 35))
         self.pushButton_bookmark.setMaximumSize(QtCore.QSize(45, 45))
         self.pushButton_bookmark.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-
-
         if Id in users_bookmark:
-            self.pushButton_bookmark.setStyleSheet("QPushButton {\n"
-                                                   "    background-color: rgb(203, 25, 25);\n"
-                                                   "    border: none;\n"
-                                                   "    border-radius: 7px;\n"
-                                                   "}\n"
-                                                   "QPushButton:hover {\n"
-                                                   "    background-color: rgb(226, 41, 41);\n"
-                                                   "}\n"
-                                                   "QPushButton:pressed {\n"
-                                                   "    background-color: rgb(175, 33, 33);\n"
-                                                   "}\n"
-                                                   "QPushButton:disabled {\n"
-                                                   "	    background-color: rgba(144,144,144);\n"
-                                                   "}")
-            self.pushButton_bookmark.setToolTip("<html><head/><body><p align=\"center\"><span style=\" "
-                                                "font-size:12pt; font-weight:600;\">Удалить книгу из "
-                                                "закладок</span></p></body></html>")
-            icon = QtGui.QIcon()
-            icon.addPixmap(QtGui.QPixmap(":/newPrefix/icon2/close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-
-            self.info_function_bookmark = False
+            self.RedButtonBookmark()
         else:
-            self.info_function_bookmark = True
-            self.pushButton_bookmark.setStyleSheet("QPushButton {\n"
-                                                   "    background-color: rgb(27, 169, 212);\n"
-                                                   "    border: none;\n"
-                                                   "    border-radius: 7px;\n"
-                                                   "}\n"
-                                                   "QPushButton:hover {\n"
-                                                   "    background-color: rgb(31, 235, 249);\n"
-                                                   "}\n"
-                                                   "QPushButton:pressed {\n"
-                                                   "    background-color: rgb(20, 131, 161);\n"
-                                                   "}\n"
-                                                   "QPushButton:disabled {\n"
-                                                   "	    background-color: rgba(144,144,144);\n"
-                                                   "}")
-            self.pushButton_bookmark.setToolTip("<html><head/><body><p align=\"center\"><span style=\" "
-                                                "font-size:12pt; font-weight:600;\">Добавить книгу в "
-                                                "закладки</span></p></body></html>")
-            icon = QtGui.QIcon()
-            icon.addPixmap(QtGui.QPixmap(":/newPrefix/icon2/bookmark.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+            self.AzureButtonBookmark()
 
         self.pushButton_bookmark.clicked.connect(lambda: self.EventBookmark())
 
-        self.pushButton_bookmark.setIcon(icon)
         self.pushButton_bookmark.setIconSize(QtCore.QSize(30, 30))
         self.pushButton_bookmark.setObjectName("pushButton_bookmark")
-
-        self.signal_bookmark_add.connect(method_bookmark_add)
-        self.signal_bookmark_delete.connect(method_bookmark_delete)
-        self.test.connect(self.zxc)
-
-
         self.gridLayout.addWidget(self.pushButton_bookmark, 6, 2, 1, 1, QtCore.Qt.AlignRight)
 
         if quantities == 0:
@@ -236,63 +189,68 @@ class CreateBook(QtCore.QThread):
         self.pushButton_more_details.setObjectName("pushButton_more_details")
         self.gridLayout.addWidget(self.pushButton_more_details, 6, 3, 1, 1)
 
-        self.signal_more_details.connect(method_more_details)
-
     def EventMoreDetails(self):
         self.signal_more_details.emit(self.id)
 
     def EventBookmark(self):
-        print(1)
+        print(self.info_function_bookmark)
         if self.info_function_bookmark:
-            print()
-            # self.pushButton_bookmark.setStyleSheet("QPushButton {\n"
-            #                                        "    background-color: rgb(203, 25, 25);\n"
-            #                                        "    border: none;\n"
-            #                                        "    border-radius: 7px;\n"
-            #                                        "}\n"
-            #                                        "QPushButton:hover {\n"
-            #                                        "    background-color: rgb(226, 41, 41);\n"
-            #                                        "}\n"
-            #                                        "QPushButton:pressed {\n"
-            #                                        "    background-color: rgb(175, 33, 33);\n"
-            #                                        "}\n"
-            #                                        "QPushButton:disabled {\n"
-            #                                        "	    background-color: rgba(144,144,144);\n"
-            #                                        "}")
-            # self.pushButton_bookmark.setToolTip("<html><head/><body><p align=\"center\"><span style=\" "
-            #                                     "font-size:12pt; font-weight:600;\">Удалить книгу из "
-            #                                     "закладок</span></p></body></html>")
-            # icon = QtGui.QIcon()
-            # icon.addPixmap(QtGui.QPixmap(":/newPrefix/icon2/close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-            # self.pushButton_bookmark.setIcon(icon)
-
-            # self.info_function_bookmark = False
-            self.signal_bookmark_add.emit([self.id, self.test, self.pushButton_bookmark])
-
+            self.signal_bookmark_add.emit([self.id, self.signal_bookmark_edit_color])
         else:
-            # self.pushButton_bookmark.setStyleSheet("QPushButton {\n"
-            #                                        "    background-color: rgb(27, 169, 212);\n"
-            #                                        "    border: none;\n"
-            #                                        "    border-radius: 7px;\n"
-            #                                        "}\n"
-            #                                        "QPushButton:hover {\n"
-            #                                        "    background-color: rgb(31, 235, 249);\n"
-            #                                        "}\n"
-            #                                        "QPushButton:pressed {\n"
-            #                                        "    background-color: rgb(20, 131, 161);\n"
-            #                                        "}\n"
-            #                                        "QPushButton:disabled {\n"
-            #                                        "	    background-color: rgba(144,144,144);\n"
-            #                                        "}")
-            # self.pushButton_bookmark.setToolTip("<html><head/><body><p align=\"center\"><span style=\" "
-            #                                     "font-size:12pt; font-weight:600;\">Добавить книгу в "
-            #                                     "закладки</span></p></body></html>")
-            # icon = QtGui.QIcon()
-            # icon.addPixmap(QtGui.QPixmap(":/newPrefix/icon2/bookmark.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-            # self.pushButton_bookmark.setIcon(icon)
-            # self.info_function_bookmark = True
-            self.signal_bookmark_delete.emit((self.id, self.info_function_bookmark, self.pushButton_bookmark))
+            self.signal_bookmark_delete.emit([self.id, self.signal_bookmark_edit_color])
 
-    def zxc(self, info):
-        print(111)
+    def EditColorButtonBookmark(self, info):
+        if info:
+            self.RedButtonBookmark()
+        else:
+            self.AzureButtonBookmark()
+
+    def RedButtonBookmark(self):
+        self.info_function_bookmark = False
+
+        self.pushButton_bookmark.setStyleSheet("QPushButton {\n"
+                                               "    background-color: rgb(203, 25, 25);\n"
+                                               "    border: none;\n"
+                                               "    border-radius: 7px;\n"
+                                               "}\n"
+                                               "QPushButton:hover {\n"
+                                               "    background-color: rgb(226, 41, 41);\n"
+                                               "}\n"
+                                               "QPushButton:pressed {\n"
+                                               "    background-color: rgb(175, 33, 33);\n"
+                                               "}\n"
+                                               "QPushButton:disabled {\n"
+                                               "	    background-color: rgba(144,144,144);\n"
+                                               "}")
+        self.pushButton_bookmark.setToolTip("<html><head/><body><p align=\"center\"><span style=\" "
+                                            "font-size:12pt; font-weight:600;\">Удалить книгу из "
+                                            "закладок</span></p></body></html>")
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/newPrefix/icon2/close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_bookmark.setIcon(icon)
+
+    def AzureButtonBookmark(self):
+        self.info_function_bookmark = True
+
+        self.pushButton_bookmark.setStyleSheet("QPushButton {\n"
+                                               "    background-color: rgb(27, 169, 212);\n"
+                                               "    border: none;\n"
+                                               "    border-radius: 7px;\n"
+                                               "}\n"
+                                               "QPushButton:hover {\n"
+                                               "    background-color: rgb(31, 235, 249);\n"
+                                               "}\n"
+                                               "QPushButton:pressed {\n"
+                                               "    background-color: rgb(20, 131, 161);\n"
+                                               "}\n"
+                                               "QPushButton:disabled {\n"
+                                               "	    background-color: rgba(144,144,144);\n"
+                                               "}")
+        self.pushButton_bookmark.setToolTip("<html><head/><body><p align=\"center\"><span style=\" "
+                                            "font-size:12pt; font-weight:600;\">Добавить книгу в "
+                                            "закладки</span></p></body></html>")
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/newPrefix/icon2/bookmark.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_bookmark.setIcon(icon)
+
     from Resources import icon_cwt
