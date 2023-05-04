@@ -9,14 +9,13 @@ class GettingInformationSQLBooks:
     def __init__(self, method_more_details, method_bookmark_add, method_bookmark_delete):
         self.Base = "Resources\\BaseDataLibrary.db"
         self.Table = "books"
+
         self.signal_more_details = method_more_details
         self.signal_bookmark_add = method_bookmark_add
         self.signal_bookmark_delete = method_bookmark_delete
 
-
-    def OpeningTableAllBooks(self, bookmark: tuple) -> tuple:
+    def OpeningTableAllBooks(self, bookmark: tuple = ()) -> tuple:
         all_frame = []
-
         try:
             with sqlite3.connect(self.Base) as con:
                 cur = con.cursor()
@@ -24,10 +23,6 @@ class GettingInformationSQLBooks:
             for row in request_information:
                 books = CreateBook(row[0], row[1], row[2], row[3], row[17], row[15], row[14], row[13], bookmark,
                                    self.signal_more_details, self.signal_bookmark_add, self.signal_bookmark_delete)
-
-                # books.signal_more_details.connect(self.signal_more_details)
-                # books.signal_bookmark.connect(self.signal_bookmark)
-
                 all_frame.append(books.frame_book)
         except sqlite3.Error as error:
             OpenNotificationDialog(f"Проблема связанная с базой данных\n{error}")
@@ -37,8 +32,8 @@ class GettingInformationSQLBooks:
 
         return tuple(all_frame)
 
-    def SearchByAllCategoriesBooks(self, name_book: str, author: str, price_from: int,
-                                   price_to: int, publisher: str, from_data: int, to_data: int) -> tuple:
+    def SearchByAllCategoriesBooks(self, name_book: str, author: str, price_from: int, price_to: int, publisher: str,
+                                   from_data: int, to_data: int, bookmark: tuple = ()) -> tuple:
         all_frame = []
         try:
             with sqlite3.connect(self.Base) as con:
@@ -49,9 +44,9 @@ class GettingInformationSQLBooks:
                 request_information = cur.fetchall()
             for row in request_information:
                 if (name_book in row[1].lower()) and (author in row[2].lower()) and (publisher in row[3].lower()):
-                    books = CreateBook(row[0], row[1], row[2], row[3], row[17], row[15], row[14], row[13])
-                    books.signal_more_details.connect(self.signal_more_details)
-                    books.signal_bookmark.connect(self.signal_bookmark)
+                    books = CreateBook(row[0], row[1], row[2], row[3], row[17], row[15], row[14], row[13], bookmark,
+                                       self.signal_more_details, self.signal_bookmark_add, self.signal_bookmark_delete)
+
                     all_frame.append(books.frame_book)
         except sqlite3.Error as error:
             OpenNotificationDialog(f"Проблема связанная с базой данных\n{error}")
@@ -61,7 +56,7 @@ class GettingInformationSQLBooks:
 
         return tuple(all_frame)
 
-    def SearchByNameBook(self, name_book):
+    def SearchByNameBook(self, name_book: str, bookmark: tuple = ()):
         all_frame = []
         try:
             with sqlite3.connect(self.Base) as con:
@@ -69,9 +64,8 @@ class GettingInformationSQLBooks:
                 request_information = cur.execute(f"SELECT * FROM {self.Table};")
             for row in request_information:
                 if name_book in row[1].lower():
-                    books = CreateBook(row[0], row[1], row[2], row[3], row[17], row[15], row[14], row[13])
-                    books.signal_more_details.connect(self.signal_more_details)
-                    books.signal_bookmark.connect(self.signal_bookmark)
+                    books = CreateBook(row[0], row[1], row[2], row[3], row[17], row[15], row[14], row[13], bookmark,
+                                       self.signal_more_details, self.signal_bookmark_add, self.signal_bookmark_delete)
                     all_frame.append(books.frame_book)
         except sqlite3.Error as error:
             OpenNotificationDialog(f"Проблема связанная с базой данных\n{error}")

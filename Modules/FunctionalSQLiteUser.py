@@ -53,23 +53,6 @@ class FunctionsWorkSQLiteUsers(QtCore.QThread):
             cur.close()
             con.close()
 
-    def InsertInfoBookmark(self, email: str, bookmark_id: int):
-        try:
-            with sqlite3.connect(self.Base) as con:
-                cur = con.cursor()
-                cur.execute(f"SELECT bookmark FROM {self.Table} WHERE email='{email}'")
-                info_bookmark = cur.fetchone()[0]
-                if (info_bookmark is None) or (info_bookmark == ""):
-                    con.execute(f"UPDATE {self.Table} SET bookmark='{bookmark_id}' WHERE email='{email}';")
-                else:
-                    if (str(bookmark_id) in info_bookmark.split("|")) is False:
-                        con.execute(f"UPDATE {self.Table} SET bookmark='{bookmark_id}|{info_bookmark}' "
-                                    f"WHERE email='{email}';")
-        except sqlite3.Error as error:
-            return f"Проблема связанная с базой данных\n{error}"
-        finally:
-            cur.close()
-            con.close()
 
     def CheckInfoBookmark(self, email: str) -> tuple:
         info_bookmark = ()
@@ -92,6 +75,26 @@ class FunctionsWorkSQLiteUsers(QtCore.QThread):
             cur.close()
             con.close()
         return info_bookmark
+
+
+    def InsertInfoBookmark(self, email: str, bookmark_id: int):
+        try:
+            with sqlite3.connect(self.Base) as con:
+                cur = con.cursor()
+                cur.execute(f"SELECT bookmark FROM {self.Table} WHERE email='{email}'")
+                info_bookmark = cur.fetchone()[0]
+                if (info_bookmark is None) or (info_bookmark == ""):
+                    con.execute(f"UPDATE {self.Table} SET bookmark='{bookmark_id}' WHERE email='{email}';")
+                else:
+                    if (str(bookmark_id) in info_bookmark.split("|")) is False:
+                        con.execute(f"UPDATE {self.Table} SET bookmark='{bookmark_id}|{info_bookmark}' "
+                                    f"WHERE email='{email}';")
+        except sqlite3.Error as error:
+            return f"Проблема связанная с базой данных\n{error}"
+        finally:
+            cur.close()
+            con.close()
+
 
     def DeleteBookmarkUsers(self, email: str, bookmark: str):
         try:
