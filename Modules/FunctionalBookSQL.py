@@ -15,7 +15,6 @@ class GettingInformationSQLBooks:
         self.signal_bookmark_delete = method_bookmark_delete
 
     def OpeningTableAllBooks(self, bookmark: tuple = ()) -> tuple:
-        print("book", bookmark)
         all_frame = []
         try:
             with sqlite3.connect(self.Base) as con:
@@ -57,7 +56,7 @@ class GettingInformationSQLBooks:
 
         return tuple(all_frame)
 
-    def SearchByNameBook(self, name_book: str, bookmark: tuple = ()):
+    def SearchByNameBook(self, name_book: str, bookmark: tuple = ()) -> tuple:
         all_frame = []
         try:
             with sqlite3.connect(self.Base) as con:

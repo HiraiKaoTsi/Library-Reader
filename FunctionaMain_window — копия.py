@@ -18,19 +18,14 @@ class FunctionalMainWindow(QtWidgets.QMainWindow):
         self.ui.setupUi(self)
 
         # До настройки (скрытие лишних объектов)
-        self.ui.frame_info_book.hide()
-        self.ui.frame_buy_book.hide()
-        self.ui.frame_search.hide()
-        self.ui.label_you_mean.hide()
-        self.ui.pushButton_exit_user_mw.hide()
-        self.ui.pushButton_reset.hide()
-        self.ui.frame_personal_data.hide()
+        self.HideSetting()
 
         # Переменные
         self.old_pos = None
         self.info_log = False
         self.users_mail = None
         self.info_window = [1]
+        self.info_search_book = False
 
         # Модули
         self.regedit = FunctionalRegedit()
@@ -48,9 +43,9 @@ class FunctionalMainWindow(QtWidgets.QMainWindow):
 
         # Шапка
         self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
-        self.ui.pushButton_fold__status_mw.clicked.connect(lambda: self.showMinimized())
+        self.ui.pushButton_fold__status_mw.clicked.connect(self.showMinimized)
         self.ui.pushButton_expand_status_mw.clicked.connect(self.ExpandWindow)
-        self.ui.pushButton_close_status_mw.clicked.connect(lambda: self.close())
+        self.ui.pushButton_close_status_mw.clicked.connect(self.close)
 
         # Кнопка меню пользователя
         self.ui.pushButton_fold_user_mw.clicked.connect(self.ShowHideMenu)
@@ -82,6 +77,15 @@ class FunctionalMainWindow(QtWidgets.QMainWindow):
         self.ui.lineEdit_search_ab.returnPressed.connect(self.ConclusionSearchInfo)
         self.ui.pushButton_clear.clicked.connect(self.ClearSearchAttributes)
         self.ui.pushButton_reset.clicked.connect(self.ResetInfo)
+
+    def HideSetting(self):
+        self.ui.frame_info_book.hide()
+        self.ui.frame_buy_book.hide()
+        self.ui.frame_search.hide()
+        self.ui.label_you_mean.hide()
+        self.ui.pushButton_exit_user_mw.hide()
+        self.ui.pushButton_reset.hide()
+        self.ui.frame_personal_data.hide()
 
     # menu users
     def ShowHideMenu(self):
@@ -133,63 +137,47 @@ class FunctionalMainWindow(QtWidgets.QMainWindow):
         self.users_mail = None
 
         self.ClearBooks()
-        if self.isMaximized() is False:
-            self.CreateBooks_2col(self.BooksSQL.OpeningTableAllBooks())
-        else:
-            self.CreateBooks_3col(self.BooksSQL.OpeningTableAllBooks())
+        self.ChoiceCreateBook()
 
-    def SearchCreateBook(self, frame_book: tuple):
-        print(1)
-        print(self)
-        print(self.isMaximized())
-        if self.isMaximized():
+        self.info_window = [1]
+        self.HideSetting()
+
+    # Выбор заполнения
+    def SearchCreateBook(self, frame_book: tuple[QtWidgets.QFrame, ...]):
+        if self.isMaximized() is False:
             self.CreateBooks_2col(frame_book)
         else:
             self.CreateBooks_3col(frame_book)
 
-    def ChoiceCreateBookWay2(self):
-        if self.info_log:
-            if self.isMaximized() is False:
-                self.CreateBooks_2col(self.BooksSQL.OpeningTableAllBooks(self.UsersSQL.CheckInfoBookmark(
-                    self.users_mail)))
-            else:
-                self.CreateBooks_3col(self.BooksSQL.OpeningTableAllBooks(self.UsersSQL.CheckInfoBookmark(
-                    self.users_mail)))
-        else:
-            if self.isMaximized() is False:
-                self.CreateBooks_2col(self.BooksSQL.OpeningTableAllBooks())
-            else:
-                self.CreateBooks_3col(self.BooksSQL.OpeningTableAllBooks())
-
     def ChoiceCreateBook(self):
         if self.info_log:
-            if self.isMaximized():
+            if self.isMaximized() is False:
                 self.CreateBooks_2col(self.BooksSQL.OpeningTableAllBooks(self.UsersSQL.CheckInfoBookmark(
                     self.users_mail)))
             else:
                 self.CreateBooks_3col(self.BooksSQL.OpeningTableAllBooks(self.UsersSQL.CheckInfoBookmark(
                     self.users_mail)))
         else:
-            if self.isMaximized():
+            if self.isMaximized() is False:
                 self.CreateBooks_2col(self.BooksSQL.OpeningTableAllBooks())
             else:
                 self.CreateBooks_3col(self.BooksSQL.OpeningTableAllBooks())
 
     # Книги заполнение
-    def CreateBooks_2col(self, all_books: tuple):
+    def CreateBooks_2col(self, frame_book: tuple[QtWidgets.QFrame, ...]):
         col = 0
         row = 0
-        for frame in all_books:
+        for frame in frame_book:
             self.ui.gridLayout_11.addWidget(frame, row, col, 1, 1)
             col += 1
             if col == 2:
                 col = 0
                 row += 1
 
-    def CreateBooks_3col(self, all_books: tuple):
+    def CreateBooks_3col(self, frame_book: tuple[QtWidgets.QFrame, ...]):
         col = 0
         row = 0
-        for frame in all_books:
+        for frame in frame_book:
             self.ui.gridLayout_11.addWidget(frame, row, col, 1, 1)
             col += 1
             if col == 3:
@@ -205,8 +193,6 @@ class FunctionalMainWindow(QtWidgets.QMainWindow):
                     widget.deleteLater()
                 else:
                     self.deleteLayout(item.self.ui.gridLayout_11())
-        self.ui.pushButton_reset.hide()
-        self.ui.label_you_mean.hide()
 
     # функционал книг
     def OpenSearchMenu(self):
@@ -238,98 +224,116 @@ class FunctionalMainWindow(QtWidgets.QMainWindow):
         self.ui.dateEdit_second.setDate(QtCore.QDate(2023, 1, 1))
 
     def ResetInfo(self):
+        self.info_search_book = False
         self.ClearBooks()
         self.ClearSearchAttributes()
-        self.ChoiceCreateBookWay2()
+        self.ChoiceCreateBook()
+        self.ui.pushButton_reset.hide()
+        self.ui.label_you_mean.hide()
 
-    def OpenInfoBook(self, Id):
+    def OpenInfoBook(self, Id: int):
 
-        def ClickBookmark():
-            self.UsersSQL.DeleteBookmarkUsers(self.users_mail, str(Id))
+        def EventPlaceOrder():
+            print(Id)
 
+        def EventBookmark():
+            if self.info_log:
+                self.UsersSQL.InsertInfoBookmark(self.users_mail, Id)
+            else:
+                self.OpenLoginReg()
+                if self.info_log:
+                    self.UsersSQL.InsertInfoBookmark(self.users_mail, Id)
+                    RedButtonBookmark()
+                    self.ClearBooks()
+                    self.ChoiceCreateBook()
 
-        info = self.BooksSQL.SearchInfoById(Id)
+        def AzureButtonBookmark():
+            self.ui.pushButton_bookmark_ib.setStyleSheet("QPushButton {\n"
+                                                         "    background-color: rgb(27, 169, 212);\n"
+                                                         "    border: none;\n"
+                                                         "    border-radius: 7px;\n"
+                                                         "}\n"
+                                                         "QPushButton:hover {\n"
+                                                         "    background-color: rgb(31, 235, 249);\n"
+                                                         "}\n"
+                                                         "QPushButton:pressed {\n"
+                                                         "    background-color: rgb(20, 131, 161);\n"
+                                                         "}\n"
+                                                         "QPushButton:disabled {\n"
+                                                         "	    background-color: rgba(144,144,144);\n"
+                                                         "}")
+
+            self.ui.pushButton_bookmark_ib.setToolTip("<html><head/><body><p align=\"center\"><span style=\" "
+                                                      "font-size:12pt; font-weight:600;\">Добавить книгу в "
+                                                      "закладки</span></p></body></html>")
+            icon = QtGui.QIcon()
+            icon.addPixmap(QtGui.QPixmap(":/newPrefix/icon2/bookmark.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+            self.ui.pushButton_bookmark_ib.setIcon(icon)
+
+        def RedButtonBookmark():
+            self.ui.pushButton_bookmark_ib.setStyleSheet("QPushButton {\n"
+                                                         "    background-color: rgb(203, 25, 25);\n"
+                                                         "    border: none;\n"
+                                                         "    border-radius: 7px;\n"
+                                                         "}\n"
+                                                         "QPushButton:hover {\n"
+                                                         "    background-color: rgb(226, 41, 41);\n"
+                                                         "}\n"
+                                                         "QPushButton:pressed {\n"
+                                                         "    background-color: rgb(175, 33, 33);\n"
+                                                         "}\n"
+                                                         "QPushButton:disabled {\n"
+                                                         "	    background-color: rgba(144,144,144);\n"
+                                                         "}")
+            self.ui.pushButton_bookmark_ib.setToolTip("<html><head/><body><p align=\"center\"><span style=\" "
+                                                      "font-size:12pt; font-weight:600;\">Удалить книгу из "
+                                                      "закладок</span></p></body></html>")
+            icon = QtGui.QIcon()
+            icon.addPixmap(QtGui.QPixmap(":/newPrefix/icon2/close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+            self.ui.pushButton_bookmark_ib.setIcon(icon)
+
+        book_info = self.BooksSQL.SearchInfoById(Id)
 
         self.CheckOpenWindow()
 
         self.ui.frame_all_book.hide()
         self.ui.frame_info_book.show()
 
-        self.ui.name_book_ib.setText(info[1])
-        self.ui.author_ib.setText(info[2])
-        self.ui.publisher_ib.setText(info[3])
-        self.ui.series_ib.setText(info[4])
-        self.ui.year_publication_ib.setText(f"{info[5]}")
-        self.ui.ISBN_ib.setText(f"{info[6]}")
-        self.ui.interpreter_ib.setText(info[7])
-        self.ui.number_pages_ib.setText(f"{info[8]}")
-        self.ui.format_ib.setText(info[9])
-        self.ui.cove_type_ib.setText(info[10])
-        self.ui.weight_g_ib.setText(f"{info[11]}")
-        self.ui.age_restrictions_ib.setText(f"{info[12]}")
-        self.ui.quantities_ib.setText(f"{info[13]}")
-        self.ui.price_ib.setText(f"Цена: {info[14]}")
-        self.ui.img_ib.setPixmap(QtGui.QPixmap(info[15]))
-        self.ui.evaluation_ib.setText(f"Оценка: {info[16]}")
-        self.ui.description_ib.setText(info[17])
+        self.ui.name_book_ib.setText(book_info[1])
+        self.ui.author_ib.setText(book_info[2])
+        self.ui.publisher_ib.setText(book_info[3])
+        self.ui.series_ib.setText(book_info[4])
+        self.ui.year_publication_ib.setText(f"{book_info[5]}")
+        self.ui.ISBN_ib.setText(f"{book_info[6]}")
+        self.ui.interpreter_ib.setText(book_info[7])
+        self.ui.number_pages_ib.setText(f"{book_info[8]}")
+        self.ui.format_ib.setText(book_info[9])
+        self.ui.cove_type_ib.setText(book_info[10])
+        self.ui.weight_g_ib.setText(f"{book_info[11]}")
+        self.ui.age_restrictions_ib.setText(f"{book_info[12]}")
+        self.ui.quantities_ib.setText(f"{book_info[13]}")
+        self.ui.price_ib.setText(f"Цена: {book_info[14]}")
+        self.ui.img_ib.setPixmap(QtGui.QPixmap(book_info[15]))
+        self.ui.evaluation_ib.setText(f"Оценка: {book_info[16]}")
+        self.ui.description_ib.setText(book_info[17])
 
-        self.ui.pushButton_bookmark_ib.setStyleSheet("QPushButton {\n"
-                                                     "    background-color: rgb(27, 169, 212);\n"
-                                                     "    border: none;\n"
-                                                     "    border-radius: 7px;\n"
-                                                     "}\n"
-                                                     "QPushButton:hover {\n"
-                                                     "    background-color: rgb(31, 235, 249);\n"
-                                                     "}\n"
-                                                     "QPushButton:pressed {\n"
-                                                     "    background-color: rgb(20, 131, 161);\n"
-                                                     "}\n"
-                                                     "QPushButton:disabled {\n"
-                                                     "	    background-color: rgba(144,144,144);\n"
-                                                     "}")
-        self.ui.pushButton_bookmark_ib.setToolTip("<html><head/><body><p align=\"center\"><span style=\" "
-                                                  "font-size:12pt; font-weight:600;\">Добавить книгу в "
-                                                  "закладки</span></p></body></html>")
-
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/newPrefix/icon2/bookmark.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-
-        if info[13] == 0:
+        if book_info[13] == 0:
             self.ui.condition_ib.setText("Нет в наличии!")
             self.ui.pushButton_bookmark_ib.setEnabled(False)
             self.ui.pushButton_arrange_ib.setEnabled(False)
         else:
-            self.ui.condition_ib.setText(f"В наличии-{info[13]} шт")
+            self.ui.condition_ib.setText(f"В наличии-{book_info[13]} шт")
             self.ui.pushButton_bookmark_ib.setEnabled(True)
             self.ui.pushButton_arrange_ib.setEnabled(True)
 
         if self.info_log:
             if Id in self.UsersSQL.CheckInfoBookmark(self.users_mail):
-                self.ui.pushButton_bookmark_ib.clicked.connect(ClickBookmark)
-                self.ui.pushButton_bookmark_ib.setStyleSheet("QPushButton {\n"
-                                                             "    background-color: rgb(203, 25, 25);\n"
-                                                             "    border: none;\n"
-                                                             "    border-radius: 7px;\n"
-                                                             "}\n"
-                                                             "QPushButton:hover {\n"
-                                                             "    background-color: rgb(226, 41, 41);\n"
-                                                             "}\n"
-                                                             "QPushButton:pressed {\n"
-                                                             "    background-color: rgb(175, 33, 33);\n"
-                                                             "}\n"
-                                                             "QPushButton:disabled {\n"
-                                                             "	    background-color: rgba(144,144,144);\n"
-                                                             "}")
-
-                self.ui.pushButton_bookmark_ib.setToolTip("<html><head/><body><p align=\"center\"><span style=\" "
-                                                          "font-size:12pt; font-weight:600;\">Удалить книгу из "
-                                                          "закладок</span></p></body></html>")
-                icon = QtGui.QIcon()
-                icon.addPixmap(QtGui.QPixmap(":/newPrefix/icon2/close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+                RedButtonBookmark()
         else:
-            self.ui.pushButton_bookmark_ib.clicked.connect()
+            AzureButtonBookmark()
 
-        self.ui.pushButton_bookmark_ib.setIcon(icon)
+        self.ui.pushButton_arrange_ib.clicked.connect(EventPlaceOrder)
+        self.ui.pushButton_bookmark_ib.clicked.connect(EventBookmark)
 
     # Поиск книг
     def ConclusionSearchInfo(self):
@@ -338,17 +342,24 @@ class FunctionalMainWindow(QtWidgets.QMainWindow):
         else:
             found_books = self.SearchBookAllInfo()
 
+        self.info_search_book = found_books
+
         if found_books is not None:
             if len(found_books) != 0:
+
                 self.ClearBooks()
                 self.SearchCreateBook(found_books)
+
+                self.info_search_book = True
+
                 self.ui.pushButton_reset.show()
                 self.ui.label_you_mean.show()
+
             else:
                 OpenNotificationDialog("Похоже, у нас такого нет\n"
                                        "Но на всякий случай советуем проверить опечатки в запросе.")
 
-    def SearchBookAllInfo(self):
+    def SearchBookAllInfo(self) -> tuple[QtWidgets.QFrame, ...]:
         found_books = None
         name_book = self.ui.lineEdit_search_ab.text().strip().lower()
         author = self.ui.lineEdit_author.text().strip().lower()
@@ -357,6 +368,7 @@ class FunctionalMainWindow(QtWidgets.QMainWindow):
         price_to = self.ui.spinBox_to.value()
         date_from = self.ui.dateEdit_first.date().year()
         date_to = self.ui.dateEdit_second.date().year()
+
         if (name_book != "") or (author != "") or (publisher != "") or \
                 (price_from != 0 or price_to != 96799) or (date_from != 1900 or date_to != 2023):
             if self.info_log:
@@ -368,8 +380,7 @@ class FunctionalMainWindow(QtWidgets.QMainWindow):
                                                                        publisher, date_from, date_to)
         return found_books
 
-    def SearchBookName(self):
-
+    def SearchBookName(self) -> tuple[QtWidgets.QFrame, ...]:
         found_books = None
         name_book = self.ui.lineEdit_search_ab.text().strip().lower()
         if name_book != "":
@@ -378,7 +389,7 @@ class FunctionalMainWindow(QtWidgets.QMainWindow):
                                                              self.UsersSQL.CheckInfoBookmark(self.users_mail))
             else:
                 found_books = self.BooksSQL.SearchByNameBook(name_book)
-        print(found_books)
+
         return found_books
 
     # Пользователя
@@ -389,10 +400,7 @@ class FunctionalMainWindow(QtWidgets.QMainWindow):
         logg_reg.show()
         logg_reg.exec()
 
-    def EditUserLogin(self, info):
-        print(1)
-        print(info)
-
+    def EditUserLogin(self, info: tuple[str, str]):
         name = info[0]
         email = info[1]
         self.ui.pushButton_profile_user_mw.setText(name)
@@ -402,30 +410,32 @@ class FunctionalMainWindow(QtWidgets.QMainWindow):
         self.users_mail = email
 
         self.ClearBooks()
-        self.ChoiceCreateBookWay2()
-
+        self.ChoiceCreateBook()
 
     # Модули
     def CheckRememberUsers(self):
         self.regedit.info_signal.connect(self.CheckRememberUsersBase)
         self.regedit.CheckInfoUser()
 
-    def CheckRememberUsersBase(self, remember_info: tuple):
+    def CheckRememberUsersBase(self, remember_info: tuple[str, str]):
         self.UsersSQL.info_signal.connect(self.EditUserLogin)
         self.UsersSQL.AuthenticationUsers(remember_info[0], remember_info[1])
 
     # Верхняя панель
     def ExpandWindow(self):
-        self.ClearBooks()
-
-        self.ChoiceCreateBook()
-
         if self.isMaximized():
             self.showNormal()
             self.ui.pushButton_expand_status_mw.setToolTip("Развернуть")
         else:
             self.showMaximized()
             self.ui.pushButton_expand_status_mw.setToolTip("Свернуть в окно")
+
+        self.ClearBooks()
+        # self.ChoiceCreateBook()
+        if self.info_search_book:
+            self.SearchCreateBook(self.SearchBookAllInfo())
+        else:
+            self.ChoiceCreateBook()
 
     # Функционал окон
     def CheckOpenWindow(self):
@@ -480,11 +490,6 @@ class FunctionalMainWindow(QtWidgets.QMainWindow):
                 return
             delta = event.pos() - self.old_pos
             self.move(self.pos() + delta)
-
-    # функционал №№№
-
-    def Test(self, info):
-        print("yra")
 
 
 if __name__ == "__main__":
