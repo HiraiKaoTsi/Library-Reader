@@ -15,23 +15,29 @@ class FunctionsWorkSQLiteUsers(QtCore.QThread):
         self.Table = "users"
 
     def AuthenticationUsers(self, email: str, password: str) -> str:
+        message = ""
+        check = False
         try:
             with sqlite3.connect(self.Base) as con:
                 cur = con.cursor()
                 cur.execute(f"SELECT * FROM {self.Table} WHERE email ='{email}';")
                 request_information = cur.fetchone()
             if request_information is None:
-                return "Такого пользователя не существует!"
+                message = "Такого пользователя не существует!"
             elif request_information[3] != password:
-                return "Неверный пароль!"
+                message = "Неверный пароль!"
             elif request_information[3] == password:
-                self.info_signal.emit((request_information[1], request_information[2]))
-                return "Успешная авторизация!"
+                check = True
+                message = "Успешная авторизация!"
         except sqlite3.Error as error:
-            return f"Проблема связанная с базой данных\n{error}"
+            message = f"Проблема связанная с базой данных\n{error}"
         finally:
             cur.close()
             con.close()
+
+        if check:
+            self.info_signal.emit((request_information[1], request_information[2]))
+        return message
 
     def RegistrationUsers(self, name: str, email: str, password: str) -> str:
         message = ""
@@ -54,6 +60,7 @@ class FunctionsWorkSQLiteUsers(QtCore.QThread):
         finally:
             cur.close()
             con.close()
+
         if check:
             self.info_signal.emit((name, email))
         return message
@@ -93,7 +100,7 @@ class FunctionsWorkSQLiteUsers(QtCore.QThread):
                         con.execute(f"UPDATE {self.Table} SET bookmark='{bookmark_id}|{info_bookmark}' "
                                     f"WHERE email='{email}';")
         except sqlite3.Error as error:
-            return f"Проблема связанная с базой данных\n{error}"
+            OpenNotificationDialog(f"Проблема связанная с базой данных\n{error}")
         finally:
             cur.close()
             con.close()
@@ -112,7 +119,7 @@ class FunctionsWorkSQLiteUsers(QtCore.QThread):
                     new_bookmark = '|'.join(new_bookmark)
                     con.execute(f"UPDATE {self.Table} SET bookmark='{new_bookmark}' WHERE email='{email}';")
         except sqlite3.Error as error:
-            return f"Проблема связанная с базой данных\n{error}"
+            OpenNotificationDialog(f"Проблема связанная с базой данных\n{error}")
         finally:
             cur.close()
             con.close()

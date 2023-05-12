@@ -193,7 +193,6 @@ class CreateBook(QtCore.QThread):
         self.signal_more_details.emit(self.id)
 
     def EventBookmark(self):
-        print(self.info_function_bookmark)
         if self.info_function_bookmark:
             self.signal_bookmark_add.emit([self.id, self.signal_bookmark_edit_color])
         else:

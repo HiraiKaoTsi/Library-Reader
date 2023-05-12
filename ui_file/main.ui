@@ -20,7 +20,7 @@
    <string>Библиотека Читайка</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="QtResources/white_icon.qrc">
+   <iconset resource="../../Изображения/QtResources/white_icon.qrc">
     <normaloff>:/newPrefix/icon2/book_shop.png</normaloff>:/newPrefix/icon2/book_shop.png</iconset>
   </property>
   <property name="styleSheet">
@@ -160,10 +160,10 @@ QPushButton:disabled {
     <string notr="true"/>
    </property>
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0" colspan="6">
-     <widget class="QFrame" name="frame_status_mw">
+    <item row="2" column="0">
+     <widget class="QFrame" name="frame_personal_data">
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
@@ -171,7 +171,7 @@ QPushButton:disabled {
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>50</height>
+        <height>0</height>
        </size>
       </property>
       <property name="frameShape">
@@ -180,137 +180,319 @@ QPushButton:disabled {
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <item alignment="Qt::AlignLeft|Qt::AlignTop">
-        <widget class="QLabel" name="label_icnon_status_mw">
+      <layout class="QGridLayout" name="gridLayout_13">
+       <item row="10" column="1" alignment="Qt::AlignRight|Qt::AlignBottom">
+        <widget class="QPushButton" name="pushButton_save">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Сохранить данные&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;пользователя&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton {
+	background-color: rgb(12, 183, 235);
+	border: none;
+	border-radius: 7px;
+}
+QPushButton:hover {
+	background-color: rgb(10, 203, 255);
+}
+QPushButton:pressed {
+	background-color: rgb(9, 145, 182);
+}
+</string>
+         </property>
+         <property name="text">
+          <string> Сохранить </string>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>40</width>
+           <height>40</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0" colspan="2" alignment="Qt::AlignTop">
+        <widget class="QFrame" name="frame_state">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item alignment="Qt::AlignLeft">
+           <widget class="QPushButton" name="pushButton_back_pd">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+              <normaloff>:/newPrefix/icon2/left_arrow.png</normaloff>:/newPrefix/icon2/left_arrow.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>50</width>
+              <height>60</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_2">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>Личные данные</string>
+            </property>
+           </widget>
+          </item>
+          <item alignment="Qt::AlignRight">
+           <widget class="QLabel" name="avatar_img_pd">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>50</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap resource="../../Изображения/QtResources/white_icon.qrc">:/newPrefix/icon2/user.png</pixmap>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item alignment="Qt::AlignRight">
+           <widget class="QPushButton" name="pushButton_menu_pd">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Скрыть/раскрыть меню пользователя&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+              <normaloff>:/newPrefix/icon2/menu.png</normaloff>:/newPrefix/icon2/menu.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>50</width>
+              <height>50</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="7" column="0" rowspan="3" colspan="2">
+        <widget class="QFrame" name="frame_main_pd">
          <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
            <horstretch>0</horstretch>
            <verstretch>0</verstretch>
           </sizepolicy>
          </property>
-         <property name="minimumSize">
-          <size>
-           <width>40</width>
-           <height>30</height>
-          </size>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
          </property>
-         <property name="styleSheet">
-          <string notr="true">image: url(:/newPrefix/icon2/searsh.png);</string>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
          </property>
-         <property name="text">
-          <string/>
-         </property>
-        </widget>
-       </item>
-       <item alignment="Qt::AlignLeft|Qt::AlignTop">
-        <widget class="QLabel" name="label_name_status_mw">
-         <property name="text">
-          <string>Библиотека - Читайка</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="horizontalSpacer_mw">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item alignment="Qt::AlignRight|Qt::AlignTop">
-        <widget class="QPushButton" name="pushButton_fold__status_mw">
-         <property name="maximumSize">
-          <size>
-           <width>40</width>
-           <height>50</height>
-          </size>
-         </property>
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Свернуть&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="icon">
-          <iconset resource="QtResources/white_icon.qrc">
-           <normaloff>:/newPrefix/icon2/bot_arrow.png</normaloff>:/newPrefix/icon2/bot_arrow.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>50</width>
-           <height>50</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item alignment="Qt::AlignRight|Qt::AlignTop">
-        <widget class="QPushButton" name="pushButton_expand_status_mw">
-         <property name="maximumSize">
-          <size>
-           <width>40</width>
-           <height>50</height>
-          </size>
-         </property>
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Развернуть&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-         <property name="styleSheet">
-          <string notr="true"/>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="icon">
-          <iconset resource="QtResources/white_icon.qrc">
-           <normaloff>:/newPrefix/icon2/expand.png</normaloff>:/newPrefix/icon2/expand.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>50</width>
-           <height>50</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item alignment="Qt::AlignRight|Qt::AlignTop">
-        <widget class="QPushButton" name="pushButton_close_status_mw">
-         <property name="maximumSize">
-          <size>
-           <width>40</width>
-           <height>50</height>
-          </size>
-         </property>
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Закрыть&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="icon">
-          <iconset resource="QtResources/white_icon.qrc">
-           <normaloff>:/newPrefix/icon2/close.png</normaloff>:/newPrefix/icon2/close.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>50</width>
-           <height>50</height>
-          </size>
-         </property>
+         <layout class="QGridLayout" name="gridLayout_14">
+          <item row="5" column="0">
+           <spacer name="verticalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>10</width>
+              <height>15</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="4" column="0" alignment="Qt::AlignLeft">
+           <widget class="QLineEdit" name="lineEdit_mail">
+            <property name="text">
+             <string>Email</string>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="0">
+           <widget class="QComboBox" name="comboBox_floor">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>190</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgba(0,0,0,0);</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>Не указывать</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Мужской</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Женский</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item row="7" column="0">
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>10</width>
+              <height>15</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="2" column="0">
+           <spacer name="verticalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>10</width>
+              <height>15</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="1" column="0" alignment="Qt::AlignLeft">
+           <widget class="QLineEdit" name="lineEdit_name">
+            <property name="text">
+             <string>Имя</string>
+            </property>
+           </widget>
+          </item>
+          <item row="9" column="0" alignment="Qt::AlignTop">
+           <widget class="QLabel" name="label_way_avatar">
+            <property name="text">
+             <string>...</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="0">
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>Аватарка</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="1" alignment="Qt::AlignLeft">
+           <widget class="QPushButton" name="pushButton_review">
+            <property name="text">
+             <string> Обзор </string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_4">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>Name</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_5">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>Email</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </widget>
        </item>
       </layout>
@@ -358,7 +540,7 @@ QPushButton:disabled {
           <string> Пользователь  </string>
          </property>
          <property name="icon">
-          <iconset resource="QtResources/white_icon.qrc">
+          <iconset resource="../../Изображения/QtResources/white_icon.qrc">
            <normaloff>:/newPrefix/icon2/user.png</normaloff>:/newPrefix/icon2/user.png</iconset>
          </property>
          <property name="iconSize">
@@ -381,7 +563,7 @@ QPushButton:disabled {
           <string> Главное меню </string>
          </property>
          <property name="icon">
-          <iconset resource="QtResources/white_icon.qrc">
+          <iconset resource="../../Изображения/QtResources/white_icon.qrc">
            <normaloff>:/newPrefix/icon2/menu_cube.png</normaloff>:/newPrefix/icon2/menu_cube.png</iconset>
          </property>
          <property name="iconSize">
@@ -413,7 +595,7 @@ QPushButton:disabled {
           <string> Настройки </string>
          </property>
          <property name="icon">
-          <iconset resource="QtResources/white_icon.qrc">
+          <iconset resource="../../Изображения/QtResources/white_icon.qrc">
            <normaloff>:/newPrefix/icon2/settings.png</normaloff>:/newPrefix/icon2/settings.png</iconset>
          </property>
          <property name="iconSize">
@@ -436,7 +618,7 @@ QPushButton:disabled {
           <string> Справка </string>
          </property>
          <property name="icon">
-          <iconset resource="QtResources/white_icon.qrc">
+          <iconset resource="../../Изображения/QtResources/white_icon.qrc">
            <normaloff>:/newPrefix/icon2/info.png</normaloff>:/newPrefix/icon2/info.png</iconset>
          </property>
          <property name="iconSize">
@@ -465,7 +647,7 @@ QPushButton:disabled {
           <string> Помощь </string>
          </property>
          <property name="icon">
-          <iconset resource="QtResources/white_icon.qrc">
+          <iconset resource="../../Изображения/QtResources/white_icon.qrc">
            <normaloff>:/newPrefix/icon2/help.png</normaloff>:/newPrefix/icon2/help.png</iconset>
          </property>
          <property name="iconSize">
@@ -491,7 +673,7 @@ QPushButton:disabled {
           <string> Заклаки </string>
          </property>
          <property name="icon">
-          <iconset resource="QtResources/white_icon.qrc">
+          <iconset resource="../../Изображения/QtResources/white_icon.qrc">
            <normaloff>:/newPrefix/icon2/mark.png</normaloff>:/newPrefix/icon2/mark.png</iconset>
          </property>
          <property name="iconSize">
@@ -530,7 +712,7 @@ QPushButton:disabled {
           <string> Скрыть </string>
          </property>
          <property name="icon">
-          <iconset resource="QtResources/white_icon.qrc">
+          <iconset resource="../../Изображения/QtResources/white_icon.qrc">
            <normaloff>:/newPrefix/icon2/right_arrow.png</normaloff>:/newPrefix/icon2/right_arrow.png</iconset>
          </property>
          <property name="iconSize">
@@ -553,7 +735,7 @@ QPushButton:disabled {
           <string> Выход </string>
          </property>
          <property name="icon">
-          <iconset resource="QtResources/white_icon.qrc">
+          <iconset resource="../../Изображения/QtResources/white_icon.qrc">
            <normaloff>:/newPrefix/icon2/exit.png</normaloff>:/newPrefix/icon2/exit.png</iconset>
          </property>
          <property name="iconSize">
@@ -726,7 +908,7 @@ QPushButton:disabled {
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="QtResources/white_icon.qrc">
+             <iconset resource="../../Изображения/QtResources/white_icon.qrc">
               <normaloff>:/newPrefix/icon2/menu.png</normaloff>:/newPrefix/icon2/menu.png</iconset>
             </property>
             <property name="iconSize">
@@ -774,8 +956,8 @@ background-color: rgba(0,0,0,0);</string>
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>759</width>
-            <height>568</height>
+            <width>807</width>
+            <height>549</height>
            </rect>
           </property>
           <property name="minimumSize">
@@ -837,7 +1019,7 @@ QLabel {
                  <string/>
                 </property>
                 <property name="icon">
-                 <iconset resource="QtResources/white_icon.qrc">
+                 <iconset resource="../../Изображения/QtResources/white_icon.qrc">
                   <normaloff>:/newPrefix/icon2/close.png</normaloff>:/newPrefix/icon2/close.png</iconset>
                 </property>
                 <property name="iconSize">
@@ -1245,292 +1427,6 @@ QLabel {
       </layout>
      </widget>
     </item>
-    <item row="2" column="1">
-     <widget class="QFrame" name="frame_buy_book">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="focusPolicy">
-       <enum>Qt::StrongFocus</enum>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Sunken</enum>
-      </property>
-      <layout class="QGridLayout" name="gridLayout_7">
-       <item row="2" column="4">
-        <widget class="QFrame" name="frame_info_bb">
-         <property name="minimumSize">
-          <size>
-           <width>100</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_6">
-          <item alignment="Qt::AlignBottom">
-           <widget class="QFrame" name="frame">
-            <property name="styleSheet">
-             <string notr="true">QFrame {
-	border: 1px solid #54026E;
-	border-radius: 4px;
-}
-QLabel {
-	border: 0px solid;
-}
-</string>
-            </property>
-            <property name="frameShape">
-             <enum>QFrame::StyledPanel</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Raised</enum>
-            </property>
-            <layout class="QVBoxLayout" name="verticalLayout_4">
-             <item alignment="Qt::AlignHCenter">
-              <widget class="QLabel" name="label_results_bb_2">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="text">
-                <string>Итоги:</string>
-               </property>
-              </widget>
-             </item>
-             <item alignment="Qt::AlignHCenter">
-              <widget class="QLabel" name="label_price_bb_2">
-               <property name="text">
-                <string>100</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <spacer name="verticalSpacer_bb_2">
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
-               </property>
-               <property name="sizeType">
-                <enum>QSizePolicy::Fixed</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>200</width>
-                 <height>27</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item alignment="Qt::AlignHCenter">
-              <widget class="QPushButton" name="pushButton_buy_bb_2">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="cursor">
-                <cursorShape>PointingHandCursor</cursorShape>
-               </property>
-               <property name="toolTip">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Оформить заказ&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">QPushButton {
-	background-color: rgb(104, 194, 104);
-	border: none;
-	border-radius: 7px;
-}
-QPushButton:hover {
-	background-color: rgb(119, 221, 119);
-}
-QPushButton:pressed {
-	background-color: rgb(19, 136, 8);
-}</string>
-               </property>
-               <property name="text">
-                <string>К оформлению</string>
-               </property>
-               <property name="icon">
-                <iconset resource="QtResources/white_icon.qrc">
-                 <normaloff>:/newPrefix/icon2/buy.png</normaloff>:/newPrefix/icon2/buy.png</iconset>
-               </property>
-               <property name="iconSize">
-                <size>
-                 <width>40</width>
-                 <height>29</height>
-                </size>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="0" column="4">
-        <widget class="QFrame" name="frame_infouser_bb">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_5">
-          <item alignment="Qt::AlignRight">
-           <widget class="QLabel" name="avatar_img">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="pixmap">
-             <pixmap resource="QtResources/white_icon.qrc">:/newPrefix/icon2/user.png</pixmap>
-            </property>
-           </widget>
-          </item>
-          <item alignment="Qt::AlignRight">
-           <widget class="QLabel" name="name_user">
-            <property name="text">
-             <string>Пользователь</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer_4">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Fixed</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>30</width>
-              <height>10</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pushButton_menu_bb">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="toolTip">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Скрыть/раскрыть меню пользователя&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="QtResources/white_icon.qrc">
-              <normaloff>:/newPrefix/icon2/menu.png</normaloff>:/newPrefix/icon2/menu.png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>50</width>
-              <height>50</height>
-             </size>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="2" column="2" colspan="2">
-        <widget class="QScrollArea" name="scrollArea_bb">
-         <property name="styleSheet">
-          <string notr="true">background-color: rgba(0,0,0,0);</string>
-         </property>
-         <property name="widgetResizable">
-          <bool>true</bool>
-         </property>
-         <widget class="QWidget" name="scrollAreaWidget_bb">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>0</y>
-            <width>294</width>
-            <height>589</height>
-           </rect>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_5"/>
-         </widget>
-        </widget>
-       </item>
-       <item row="0" column="0">
-        <widget class="QPushButton" name="pushButton_back_bb">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="cursor">
-          <cursorShape>PointingHandCursor</cursorShape>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="icon">
-          <iconset resource="QtResources/white_icon.qrc">
-           <normaloff>:/newPrefix/icon2/left_arrow.png</normaloff>:/newPrefix/icon2/left_arrow.png</iconset>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>50</width>
-           <height>60</height>
-          </size>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="2">
-        <widget class="QLabel" name="label">
-         <property name="text">
-          <string>Закладки: </string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="2" colspan="3">
-        <widget class="QLabel" name="label_6">
-         <property name="text">
-          <string>Тут пока пусто...</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
     <item row="2" column="2">
      <widget class="QFrame" name="frame_info_book">
       <property name="sizePolicy">
@@ -1579,7 +1475,7 @@ QPushButton:pressed {
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="QtResources/white_icon.qrc">
+             <iconset resource="../../Изображения/QtResources/white_icon.qrc">
               <normaloff>:/newPrefix/icon2/left_arrow.png</normaloff>:/newPrefix/icon2/left_arrow.png</iconset>
             </property>
             <property name="iconSize">
@@ -1608,7 +1504,7 @@ QPushButton:pressed {
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="QtResources/white_icon.qrc">
+             <iconset resource="../../Изображения/QtResources/white_icon.qrc">
               <normaloff>:/newPrefix/icon2/menu.png</normaloff>:/newPrefix/icon2/menu.png</iconset>
             </property>
             <property name="iconSize">
@@ -1641,8 +1537,8 @@ QPushButton:pressed {
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>622</width>
-            <height>604</height>
+            <width>668</width>
+            <height>711</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="gridLayout_4">
@@ -1727,7 +1623,7 @@ QPushButton:disabled {
    заказ!</string>
                    </property>
                    <property name="icon">
-                    <iconset resource="QtResources/white_icon.qrc">
+                    <iconset resource="../../Изображения/QtResources/white_icon.qrc">
                      <normaloff>:/newPrefix/icon2/buy.png</normaloff>:/newPrefix/icon2/buy.png</iconset>
                    </property>
                    <property name="iconSize">
@@ -1773,7 +1669,7 @@ QPushButton:pressed {
                     <string/>
                    </property>
                    <property name="icon">
-                    <iconset resource="QtResources/white_icon.qrc">
+                    <iconset resource="../../Изображения/QtResources/white_icon.qrc">
                      <normaloff>:/newPrefix/icon2/bookmark.png</normaloff>:/newPrefix/icon2/bookmark.png</iconset>
                    </property>
                    <property name="iconSize">
@@ -2142,7 +2038,7 @@ QPushButton:pressed {
               <string/>
              </property>
              <property name="pixmap">
-              <pixmap resource="QtResources/white_icon.qrc">:/newPrefix/icon2/book_shop.png</pixmap>
+              <pixmap resource="../../Изображения/QtResources/white_icon.qrc">:/newPrefix/icon2/book_shop.png</pixmap>
              </property>
             </widget>
            </item>
@@ -2153,10 +2049,10 @@ QPushButton:pressed {
       </layout>
      </widget>
     </item>
-    <item row="2" column="0">
-     <widget class="QFrame" name="frame_personal_data">
+    <item row="0" column="0" colspan="6">
+     <widget class="QFrame" name="frame_status_mw">
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
@@ -2164,7 +2060,7 @@ QPushButton:pressed {
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>0</height>
+        <height>50</height>
        </size>
       </property>
       <property name="frameShape">
@@ -2173,57 +2069,303 @@ QPushButton:pressed {
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <layout class="QGridLayout" name="gridLayout_13">
-       <item row="10" column="1" alignment="Qt::AlignRight|Qt::AlignBottom">
-        <widget class="QPushButton" name="pushButton_save">
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item alignment="Qt::AlignLeft|Qt::AlignTop">
+        <widget class="QLabel" name="label_icnon_status_mw">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>40</width>
            <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">image: url(:/newPrefix/icon2/searsh.png);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item alignment="Qt::AlignLeft|Qt::AlignTop">
+        <widget class="QLabel" name="label_name_status_mw">
+         <property name="text">
+          <string>Библиотека - Читайка</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_mw">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item alignment="Qt::AlignRight|Qt::AlignTop">
+        <widget class="QPushButton" name="pushButton_fold__status_mw">
+         <property name="maximumSize">
+          <size>
+           <width>40</width>
+           <height>50</height>
           </size>
          </property>
          <property name="cursor">
           <cursorShape>PointingHandCursor</cursorShape>
          </property>
          <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Сохранить данные&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;пользователя&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">QPushButton {
-	background-color: rgb(12, 183, 235);
-	border: none;
-	border-radius: 7px;
-}
-QPushButton:hover {
-	background-color: rgb(10, 203, 255);
-}
-QPushButton:pressed {
-	background-color: rgb(9, 145, 182);
-}
-</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Свернуть&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
-          <string> Сохранить </string>
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+           <normaloff>:/newPrefix/icon2/bot_arrow.png</normaloff>:/newPrefix/icon2/bot_arrow.png</iconset>
          </property>
          <property name="iconSize">
           <size>
-           <width>40</width>
-           <height>40</height>
+           <width>50</width>
+           <height>50</height>
           </size>
          </property>
         </widget>
        </item>
-       <item row="0" column="0" colspan="2" alignment="Qt::AlignTop">
-        <widget class="QFrame" name="frame_state">
+       <item alignment="Qt::AlignRight|Qt::AlignTop">
+        <widget class="QPushButton" name="pushButton_expand_status_mw">
+         <property name="maximumSize">
+          <size>
+           <width>40</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Развернуть&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+           <normaloff>:/newPrefix/icon2/expand.png</normaloff>:/newPrefix/icon2/expand.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>50</width>
+           <height>50</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item alignment="Qt::AlignRight|Qt::AlignTop">
+        <widget class="QPushButton" name="pushButton_close_status_mw">
+         <property name="maximumSize">
+          <size>
+           <width>40</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Закрыть&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+           <normaloff>:/newPrefix/icon2/close.png</normaloff>:/newPrefix/icon2/close.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>50</width>
+           <height>50</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QFrame" name="frame_buy_book">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_7">
+       <item row="2" column="2" alignment="Qt::AlignBottom">
+        <widget class="QFrame" name="frame_bb_info">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>180</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>250</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QFrame {
+	border: 1px solid #54026E;
+	border-radius: 4px;
+}
+QLabel {
+	border: 0px solid;
+}
+</string>
+         </property>
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
          </property>
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item alignment="Qt::AlignHCenter|Qt::AlignBottom">
+           <widget class="QLabel" name="label_6">
+            <property name="text">
+             <string>Итоги</string>
+            </property>
+           </widget>
+          </item>
+          <item alignment="Qt::AlignHCenter|Qt::AlignBottom">
+           <widget class="QLabel" name="label_price_bb">
+            <property name="text">
+             <string>100</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="verticalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>27</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item alignment="Qt::AlignHCenter|Qt::AlignBottom">
+           <widget class="QPushButton" name="pushButton_buy_bb">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="toolTip">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Оформить заказ&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+	background-color: rgb(104, 194, 104);
+	border: none;
+	border-radius: 7px;
+}
+QPushButton:hover {
+	background-color: rgb(119, 221, 119);
+}
+QPushButton:pressed {
+	background-color: rgb(19, 136, 8);
+}</string>
+            </property>
+            <property name="text">
+             <string>К оформлению</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../../Изображения/QtResources/white_icon.qrc">
+              <normaloff>:/newPrefix/icon2/buy.png</normaloff>:/newPrefix/icon2/buy.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>40</width>
+              <height>29</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLabel" name="label_info_bb">
+         <property name="text">
+          <string>  Тут пока пусто...</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <spacer name="horizontalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="0" column="0" colspan="3">
+        <widget class="QFrame" name="frame_status_bb">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
           <item alignment="Qt::AlignLeft">
-           <widget class="QPushButton" name="pushButton_back_pd">
+           <widget class="QPushButton" name="pushButton_back_bb">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -2237,7 +2379,7 @@ QPushButton:pressed {
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="QtResources/white_icon.qrc">
+             <iconset resource="../../Изображения/QtResources/white_icon.qrc">
               <normaloff>:/newPrefix/icon2/left_arrow.png</normaloff>:/newPrefix/icon2/left_arrow.png</iconset>
             </property>
             <property name="iconSize">
@@ -2249,51 +2391,60 @@ QPushButton:pressed {
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_2">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
+           <widget class="QLabel" name="label">
             <property name="text">
-             <string>Личные данные</string>
+             <string>Закладки: </string>
             </property>
            </widget>
           </item>
-          <item alignment="Qt::AlignRight">
-           <widget class="QLabel" name="avatar_img_pd">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
+          <item>
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
             </property>
-            <property name="minimumSize">
+            <property name="sizeHint" stdset="0">
              <size>
-              <width>50</width>
-              <height>50</height>
+              <width>40</width>
+              <height>20</height>
              </size>
             </property>
-            <property name="maximumSize">
-             <size>
-              <width>50</width>
-              <height>50</height>
-             </size>
-            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="avatar_img">
             <property name="text">
              <string/>
             </property>
             <property name="pixmap">
-             <pixmap resource="QtResources/white_icon.qrc">:/newPrefix/icon2/user.png</pixmap>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
+             <pixmap resource="../../Изображения/QtResources/white_icon.qrc">:/newPrefix/icon2/user.png</pixmap>
             </property>
            </widget>
           </item>
-          <item alignment="Qt::AlignRight">
-           <widget class="QPushButton" name="pushButton_menu_pd">
+          <item>
+           <widget class="QLabel" name="name_user">
+            <property name="text">
+             <string>Пользователь</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_7">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>30</width>
+              <height>10</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_menu_bb">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -2310,7 +2461,7 @@ QPushButton:pressed {
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="QtResources/white_icon.qrc">
+             <iconset resource="../../Изображения/QtResources/white_icon.qrc">
               <normaloff>:/newPrefix/icon2/menu.png</normaloff>:/newPrefix/icon2/menu.png</iconset>
             </property>
             <property name="iconSize">
@@ -2324,162 +2475,25 @@ QPushButton:pressed {
          </layout>
         </widget>
        </item>
-       <item row="7" column="0" rowspan="3" colspan="2">
-        <widget class="QFrame" name="frame_main_pd">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
+       <item row="2" column="0" colspan="2">
+        <widget class="QScrollArea" name="scrollArea_bb">
+         <property name="styleSheet">
+          <string notr="true">background-color: rgba(0,0,0,0);</string>
          </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
+         <property name="widgetResizable">
+          <bool>true</bool>
          </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <layout class="QGridLayout" name="gridLayout_14">
-          <item row="5" column="0">
-           <spacer name="verticalSpacer_2">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Fixed</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>10</width>
-              <height>15</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="4" column="0" alignment="Qt::AlignLeft">
-           <widget class="QLineEdit" name="lineEdit_mail">
-            <property name="text">
-             <string>Email</string>
-            </property>
-            <property name="readOnly">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="6" column="0">
-           <widget class="QComboBox" name="comboBox_floor">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">background-color: rgba(0,0,0,0);</string>
-            </property>
-            <item>
-             <property name="text">
-              <string>Не указывать</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Мужской</string>
-             </property>
-            </item>
-            <item>
-             <property name="text">
-              <string>Женский</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-          <item row="7" column="0">
-           <spacer name="verticalSpacer">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Fixed</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>10</width>
-              <height>15</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="2" column="0">
-           <spacer name="verticalSpacer_3">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Fixed</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>10</width>
-              <height>15</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item row="1" column="0" alignment="Qt::AlignLeft">
-           <widget class="QLineEdit" name="lineEdit_name">
-            <property name="text">
-             <string>Имя</string>
-            </property>
-           </widget>
-          </item>
-          <item row="9" column="0" alignment="Qt::AlignTop">
-           <widget class="QLabel" name="label_way_avatar">
-            <property name="text">
-             <string>...</string>
-            </property>
-           </widget>
-          </item>
-          <item row="8" column="0">
-           <widget class="QLabel" name="label_3">
-            <property name="text">
-             <string>Аватарка</string>
-            </property>
-           </widget>
-          </item>
-          <item row="8" column="1" alignment="Qt::AlignLeft">
-           <widget class="QPushButton" name="pushButton_review">
-            <property name="text">
-             <string> Обзор </string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="0">
-           <widget class="QLabel" name="label_4">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>Name</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="0">
-           <widget class="QLabel" name="label_5">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>Email</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
+         <widget class="QWidget" name="scrollAreaWidgetContents_2">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>307</width>
+            <height>555</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_4"/>
+         </widget>
         </widget>
        </item>
       </layout>
@@ -2489,7 +2503,6 @@ QPushButton:pressed {
   </widget>
  </widget>
  <resources>
-  <include location="QtResources/white_icon.qrc"/>
   <include location="../../Изображения/QtResources/white_icon.qrc"/>
  </resources>
  <connections/>

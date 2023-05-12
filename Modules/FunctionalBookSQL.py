@@ -1,6 +1,7 @@
 import sqlite3
 
 from Modules.Books import CreateBook
+from Modules.Book_bookmark import CreateBookBookmark
 
 from Modules.DisplayingMessageBox import OpenNotificationDialog
 
@@ -75,6 +76,26 @@ class GettingInformationSQLBooks:
 
         return tuple(all_frame)
 
+    def SearchBooksByIdBookmark(self, id_books: tuple, method_amount, method_add, method_delete) -> tuple:
+        all_frame = []
+        try:
+            with sqlite3.connect(self.Base) as con:
+                cur = con.cursor()
+                for Id in id_books:
+                    cur.execute(f"SELECT * FROM {self.Table} WHERE id == {Id};")
+                    info = cur.fetchone()
+                    books = CreateBookBookmark(info[0], info[1], info[2], info[3], info[4], info[6],
+                                               info[14], info[13], info[15], method_amount, method_add, method_delete)
+                    all_frame.append(books.frame_book)
+        except sqlite3.Error as error:
+            OpenNotificationDialog(f"Проблема связанная с базой данных\n{error}")
+        finally:
+            cur.close()
+            con.close()
+
+        return tuple(all_frame)
+
+
     def SearchInfoById(self, Id: int):
         request_information = ()
         try:
@@ -89,3 +110,4 @@ class GettingInformationSQLBooks:
             con.close()
 
         return tuple(request_information)
+

@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>715</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="toolTip">
+   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QFrame" name="frame_book">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>172</y>
+      <width>540</width>
+      <height>230</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>531</width>
+      <height>230</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>800</width>
+      <height>300</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QFrame {
+	border: 1px solid #54026E;
+	border-radius: 4px;
+}
+QLabel {
+	border: 0px solid;
+	font-family: Rubick;
+}
+QToolTip {
+	font-family: Rubick;
+	font-size: 12pt;
+	color:white; 
+	padding:2px;
+	border-width:2px;
+	border-style:solid;
+	border-radius:20px;
+	background-color: rgb(30, 33, 61);
+	border: 1px solid white;
+	border-radius: 7px;
+	overflow:hidden;
+}
+QSpinBox {
+	background-color: rgb(0, 0, 0,0);
+ }
+QSpinBox::up-button {
+    subcontrol-origin: border;
+    subcontrol-position: center right; 
+	width: 20;
+	height: 20;
+	border-image: url(:/newPrefix/icon2/pluss1.png);
+ }
+QSpinBox::down-button {
+    subcontrol-origin: border;
+	subcontrol-position: center left; 
+	width: 20;
+	height: 20;
+	border-image: url(:/newPrefix/icon2/pluss1.png);
+ }
+
+QSpinBox::up-button:hover {
+	
+	border-image: url(:/newPrefix/icon2/pluss2.png);
+}
+QSpinBox::down-button:hover {
+	border-image: url(:/newPrefix/icon2/pluss2.png);
+}
+
+QSpinBox::up-button:pressed {
+	border-image: url(:/newPrefix/icon2/pluss3.png);
+}
+
+QSpinBox::down-button:pressed {
+	border-image: url(:/newPrefix/icon2/pluss3.png);
+}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_3">
+     <item row="8" column="1" colspan="2" alignment="Qt::AlignRight">
+      <widget class="QLabel" name="label_price">
+       <property name="styleSheet">
+        <string notr="true">font-size: 8pt;</string>
+       </property>
+       <property name="text">
+        <string>Цена</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1" colspan="2">
+      <widget class="QLabel" name="label_publisher">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font-size: 7pt;</string>
+       </property>
+       <property name="text">
+        <string>Издательство: ыфввы</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLabel" name="label_author">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font-size: 7pt;</string>
+       </property>
+       <property name="text">
+        <string>Автор: Efremov</string>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="2">
+      <widget class="QPushButton" name="pushButton_buy">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Купить книгу&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string> Купить </string>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="1">
+      <widget class="QLabel" name="label_ISBN">
+       <property name="styleSheet">
+        <string notr="true">font-size: 7pt;</string>
+       </property>
+       <property name="text">
+        <string>ISBN:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QLabel" name="label_series">
+       <property name="styleSheet">
+        <string notr="true">font-size: 7pt;</string>
+       </property>
+       <property name="text">
+        <string>Серия: </string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="2">
+      <widget class="QSpinBox" name="spinBox">
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Cколько экземпляров заказать&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="minimum">
+        <number>1</number>
+       </property>
+       <property name="maximum">
+        <number>99</number>
+       </property>
+       <property name="value">
+        <number>1</number>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2" alignment="Qt::AlignRight|Qt::AlignTop">
+      <widget class="QPushButton" name="pushButton_close">
+       <property name="minimumSize">
+        <size>
+         <width>30</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>30</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Убрать книгу из&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt; закладок&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset resource="C:/Users/full-/OneDrive/Изображения/QtResources/white_icon.qrc">
+         <normaloff>:/newPrefix/icon2/close.png</normaloff>:/newPrefix/icon2/close.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>10</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="1" column="1" rowspan="2">
+      <widget class="QLabel" name="label_name">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font-size: 9pt;</string>
+       </property>
+       <property name="text">
+        <string>Название Основатель Тёмного Пути</string>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0" rowspan="12">
+      <widget class="QLabel" name="label_img">
+       <property name="minimumSize">
+        <size>
+         <width>108</width>
+         <height>152</height>
+        </size>
+       </property>
+       <property name="sizeIncrement">
+        <size>
+         <width>108</width>
+         <height>152</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">image: url(D:/Program projects/Python projects/Library/Resources/all_book/Бензопила/img.PNG);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="C:/Users/full-/OneDrive/Изображения/QtResources/white_icon.qrc"/>
+ </resources>
+ <connections/>
+</ui>
